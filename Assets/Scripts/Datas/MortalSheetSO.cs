@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "MortalSheet", menuName = "ScriptableObjects/Mortal", order = 1)]
+[CreateAssetMenu(fileName = "MortalSheet", menuName = "ScriptableObjects/Mortal/MortalSheet", order = 3)]
 public class MortalSheetSO : ScriptableObject
 {
     public MortalFeatureSO mortalName;
@@ -19,7 +19,8 @@ public class MortalSheetSO : ScriptableObject
     {
         public GoodsSO goods;
         public float scoreMultiplier;
-        public float goodsModifiedWeight;
+        public float goodsModifiedWeightMultiplier;
+        public float goodsModifiedSizeMultiplier;
     }
 
     public void Init()
