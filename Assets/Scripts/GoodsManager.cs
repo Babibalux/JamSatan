@@ -38,7 +38,7 @@ public class GoodsManager : MonoBehaviour
     {
         foreach(GoodsItem goodsItem in goods)
         {
-            goodsItem.rb.mass = goodsItem.type.baseGoodsWeight;
+            goodsItem.ResetGoods();
         }
     }
     
