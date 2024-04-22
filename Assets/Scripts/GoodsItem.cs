@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GoodsItem : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GoodsItem : MonoBehaviour
     public float destroyDuration = 1f;
     public GameObject destroyFX;
     float destroyTime;
+    public UnityEvent onDestroy;
 
     public void Awake()
     {
@@ -32,15 +34,15 @@ public class GoodsItem : MonoBehaviour
         gameObject.SetActive(show);
     }
 
-    [ContextMenu("TESTWEIGHT")]
-    public void TestChangeWeight1()
+    public void DestroyGoods()
     {
-        ChangeWeight(0.5f,0.75f);
-    }
-    [ContextMenu("TESTWEIGHT2")]
-    public void TestChangeWeight2()
-    {
-        ChangeWeight(1.5f, 1.25f);
+        onDestroy.Invoke();
+
+        destroy = false;
+        destroyTime = 0;
+        gameObject.SetActive(false);
+
+        destroyFX.SetActive(false);
     }
 
     public void ChangeWeight(float weightModifier, float scaleModifier)
@@ -80,11 +82,7 @@ public class GoodsItem : MonoBehaviour
             }
             else if (destroyTime >= destroyDuration)
             {
-                destroy = false;
-                destroyTime = 0;
-                gameObject.SetActive(false);
-
-                destroyFX.SetActive(false);
+                DestroyGoods();
             }
         }
     }

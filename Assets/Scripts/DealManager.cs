@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DealManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DealManager : MonoBehaviour
     public AnimationCurve weightScoreByBalance;
     public float minWeight = -3;
     public float maxWeight = 3;
+
+    public UnityEvent onSealTheDeal;
 
     public static DealManager instance { get; private set; }
     private void Awake()
@@ -38,8 +41,7 @@ public class DealManager : MonoBehaviour
 
     public void SealTheDeal()
     {
-        CalculateScore();
-        //NextMortal
+        onSealTheDeal.Invoke();
     }
 
     [ContextMenu("CalculateScore")]
