@@ -36,6 +36,12 @@ public class DealManager : MonoBehaviour
         actualMortal.Init();
     }
 
+    public void SealTheDeal()
+    {
+        CalculateScore();
+        //NextMortal
+    }
+
     [ContextMenu("CalculateScore")]
     public int CalculateScore()
     {
@@ -64,16 +70,20 @@ public class DealManager : MonoBehaviour
             weightBalance -= item.rb.mass;
         }
 
-        //WeightBalanceScore
-        if(weightBalance < minWeight)
+        //WeightBalanceScore  
+        if(mortalDonation.Count >= 1 || satanDonation.Count >= 1)
         {
-            weightBalance = minWeight;
+            if (weightBalance < minWeight)
+            {
+                weightBalance = minWeight;
+            }
+            else if (weightBalance > maxWeight)
+            {
+                weightBalance = maxWeight;
+            }
+
+            score += Mathf.RoundToInt(weightScoreByBalance.Evaluate(weightBalance));
         }
-        else if (weightBalance > maxWeight)
-        {
-            weightBalance = maxWeight;
-        }
-        score += Mathf.RoundToInt(weightScoreByBalance.Evaluate(weightBalance));
 
         Debug.Log("Score : " + score);
         return score;
