@@ -12,7 +12,7 @@ public class MortalSheetSO : ScriptableObject
     public List<MortalFeatureSO> mortalSins;
 
     public List<MortalPreference> mortalPreferences;
-    public Dictionary<string,MortalPreference> preferenceRepertory;
+    public Dictionary<string,MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
 
     [System.Serializable]
     public struct MortalPreference

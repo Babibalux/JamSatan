@@ -15,6 +15,7 @@ public class GoodsManager : MonoBehaviour
     void Init()
     {
         SetGoodsRepertory();
+        ShowHideAllGoods(false);
     }
 
     void SetGoodsRepertory()
@@ -38,6 +39,23 @@ public class GoodsManager : MonoBehaviour
         foreach(GoodsItem goodsItem in goods)
         {
             goodsItem.rb.mass = goodsItem.type.baseGoodsWeight;
+        }
+    }
+    
+    public void ShowHideAllGoods(bool show)
+    {
+        ShowHideGoods(show, goods.ToArray());
+    }
+
+    public void ShowHideGoods(bool show, GoodsItem goods)
+    {
+        goods.gameObject.SetActive(show);
+    }
+    public void ShowHideGoods(bool show, GoodsItem[] goods)
+    {
+        foreach(GoodsItem item in goods)
+        {
+            item.gameObject.SetActive(show);
         }
     }
 }
