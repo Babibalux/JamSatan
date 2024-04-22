@@ -10,7 +10,7 @@ public class GoodsItem : MonoBehaviour
 
     [Header("Destruction")]
     public bool destroy;
-    public float destroyDuration;
+    public float destroyDuration = 1f;
     public GameObject destroyFX;
     float destroyTime;
 
