@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Mortal", order = 2)]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Mortal/MortalFeature", order = 2)]
 public class MortalFeatureSO : ScriptableObject
 {
     public string displayedText;

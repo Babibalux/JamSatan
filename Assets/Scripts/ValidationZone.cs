@@ -18,7 +18,12 @@ public class ValidationZone : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        
+        GoodsItem goods = GetGoodsItem(collision.gameObject);
+
+        if (goods != null && goods.type.goodsType != authorizedType)
+        {
+            goods.WrongZoneProcessus(false);
+        }
     }
 
     GoodsItem GetGoodsItem(GameObject item)
