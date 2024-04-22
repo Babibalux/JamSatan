@@ -49,13 +49,32 @@ public class GoodsManager : MonoBehaviour
 
     public void ShowHideGoods(bool show, GoodsItem goods)
     {
-        goods.gameObject.SetActive(show);
+        goods.ShowGoods(show);
     }
     public void ShowHideGoods(bool show, GoodsItem[] goods)
     {
         foreach(GoodsItem item in goods)
         {
-            item.gameObject.SetActive(show);
+            item.ShowGoods(show);
         }
+    }
+
+    public List<GoodsItem> GetGoodsInZone(Collider2D zone)
+    {
+        List<GoodsItem> goodsInZone = new List<GoodsItem>();
+
+        List<Collider2D> objectsDetected = new List<Collider2D>();
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        zone.OverlapCollider(contactFilter, objectsDetected);
+
+        foreach(Collider2D collider in objectsDetected)
+        {
+            if(collider.GetComponent<GoodsItem>() == true)
+            {
+                goodsInZone.Add(collider.GetComponent<GoodsItem>());
+            }
+        }
+
+        return goodsInZone;
     }
 }

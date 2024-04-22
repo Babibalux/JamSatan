@@ -475,6 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950885524400992268}
   - component: {fileID: 9066699650303017681}
+  - component: {fileID: 3784166967866851234}
   m_Layer: 0
   m_Name: SatanGoodsValidationZone
   m_TagString: Untagged
@@ -542,6 +543,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 6.0024824}
   m_EdgeRadius: 0
+--- !u!114 &3784166967866851234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979745136074978749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e5b2239994477438d29d11de8d7110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6035847516731783472
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404756298243362571}
   - component: {fileID: 5000561566071004920}
+  - component: {fileID: 1209429529978825327}
   m_Layer: 0
   m_Name: MortalGoodsValidationZone
   m_TagString: Untagged
@@ -820,6 +834,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 6.0024824}
   m_EdgeRadius: 0
+--- !u!114 &1209429529978825327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017269723904189536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e5b2239994477438d29d11de8d7110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7198434126837887451
 GameObject:
   m_ObjectHideFlags: 0
