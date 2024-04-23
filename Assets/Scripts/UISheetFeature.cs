@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class UISheetFeature : MonoBehaviour
+public class UISheetFeature : MonoBehaviour, IPointerDownHandler
 {
     public int featureID;
     public TextMeshProUGUI textMesh;
@@ -16,13 +17,18 @@ public class UISheetFeature : MonoBehaviour
         textMesh.text = GameManager.instance.actualMortal.mortalFeatures[featureID].displayedText;
     }
 
+    [ContextMenu("Refresh")]
     public void Refresh()
     {
         textMesh.text = GameManager.instance.actualMortal.mortalFeatures[featureID].displayedText;
     }
 
-    public void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        //CALL LINKED QUESTION ON GAMEMANAGER
+        GameManager.instance.AskMortal(featureID);
+
+        //TEST Actualisation Feature
+        //GameManager.instance.actualMortal.mortalFeatures[featureID].UpdateFeature();
+        //GameManager.instance.UISheetMana.RefreshSheet();
     }
 }

@@ -18,13 +18,42 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] askButtons;
     public TextMeshProUGUI[] askButtonsTexts;
 
+    [Header("Logic")]
+    public Dialogue actualDialogue;
 
-    public QuestionAsked questionAskedEvent;
+    public void Start()
+    {
+        SetDialogueActive(false);
+    }
 
     #region Dialogue
-    public void ShowDialogue(bool show)
+    public void ChangeDialogue(Dialogue newDialogue)
     {
+        SetDialogueActive(true);
 
+        actualDialogue = newDialogue;
+        ChangeText(dialogueText, actualDialogue.dialogueContent);
+
+        if(actualDialogue.isQuestion)
+        {
+            for(int i = 0; i < askButtons.Length; i++)
+            {
+                if(i < actualDialogue.questions.Length && !actualDialogue.questions[i].hasBeenAnswered)
+                {
+                    askButtonsTexts[i].text = actualDialogue.questions[i].questionText;
+                    askButtons[i].SetActive(true);
+                }
+                else
+                {
+                    askButtonsTexts[i].text = "";
+                    askButtons[i].SetActive(false);
+                }
+            }
+        }
+    }
+    public void SetDialogueActive(bool set)
+    {
+        dialogueParent.SetActive(set);
     }
     public void ChangeText(TextMeshProUGUI target,string newText)
     {
@@ -35,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     #region Ask
     public void Ask(int value)
     {
-        questionAskedEvent.Invoke(value);
+
     }
     #endregion
 }

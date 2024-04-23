@@ -7,6 +7,8 @@ public class UIMortalSheet : MonoBehaviour
 {
     public UISheetFeature nameFeature;
 
+    public GameObject uiSheetParent;
+
     public GameObject historyList;
     public GameObject historyPrefab;
     public List<UISheetFeature> historyFeatures;
@@ -21,6 +23,7 @@ public class UIMortalSheet : MonoBehaviour
         FeaturesUISetUp(GameManager.instance.actualMortal.mortalFeatures);
     }
 
+    #region FeatureManagement
     public void FeaturesUISetUp(List<MortalFeature> features)
     {
         for(int i = 0; i < features.Count; i++)
@@ -88,5 +91,11 @@ public class UIMortalSheet : MonoBehaviour
             Destroy(list[i].gameObject);
         }
         list.Clear();
+    }
+    #endregion
+
+    public void ShowSheet(bool set)
+    {
+        uiSheetParent.GetComponent<Animator>().SetBool("isActive",set);
     }
 }
