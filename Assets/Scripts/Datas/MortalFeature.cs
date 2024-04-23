@@ -6,7 +6,8 @@ using UnityEngine;
 public class MortalFeature
 {
     [System.Serializable]
-    public enum FeatureType { Name, History, Talent, Sin}
+    public enum FeatureType { Name, History, Misc}
+    public FeatureType featureType;
     [System.NonSerialized] public string displayedText;
     public string initialText;
 

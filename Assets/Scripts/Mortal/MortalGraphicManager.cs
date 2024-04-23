@@ -5,19 +5,19 @@ using UnityEngine;
 public class MortalGraphicManager : MonoBehaviour
 {
     [Header("Eyes")]
-    public SpriteRenderer eyes;
+    public bool hasEyes = true;
+    public SpriteRenderer[] eyes;
     bool eyesOn = true;
-    public Sprite[] eyesSprites = new Sprite[5];
 
     [Header("Nose")]
+    public bool hasNose = true;
     public SpriteRenderer nose;
     bool noseOn = true;
-    public Sprite[] noseSprites = new Sprite[2];
 
     [Header("Mouth")]
-    public SpriteRenderer mouth;
+    public bool hasMouth = true;
+    public SpriteRenderer[] mouth;
     bool mouthOn = true;
-    public Sprite[] mouthSprites = new Sprite[5];
 
     public int expression = 0;    
 
@@ -28,36 +28,63 @@ public class MortalGraphicManager : MonoBehaviour
 
     void FacialExpression()
     {
-        if (eyesOn) eyes.sprite = eyesSprites[expression];
-        else eyes.sprite = eyesSprites[4];
+        if(hasEyes)
+        {
+            if (eyesOn)
+            {
+                eyes[4].enabled = false;
+                for (int i = 0; i < eyes.Length - 1; i++)
+                {
+                    if (i == expression)
+                    {
+                        eyes[i].enabled = true;
+                    }
+                    else eyes[i].enabled = false;
+                }
+            }
+            else
+            {
+                eyes[4].enabled = true;
+                for (int i = 0; i < eyes.Length - 1; i++)
+                {
+                    eyes[i].enabled = false;
+                }
+            }
+        }
+        
+        if(hasNose)
+        {
+            if (noseOn) nose.enabled = true;
+            else nose.enabled = false;
+        }
 
-        if (noseOn) nose.sprite = noseSprites[0];
-        else nose.sprite = noseSprites[1];
-
-        if (mouthOn) mouth.sprite = mouthSprites[expression];
-        else mouth.sprite = mouthSprites[4];
+        if(hasMouth)
+        {
+            if (mouthOn)
+            {
+                mouth[4].enabled = false;
+                for (int i = 0; i < mouth.Length - 1; i++)
+                {
+                    if (i == expression)
+                    {
+                        mouth[i].enabled = true;
+                    }
+                    else mouth[i].enabled = false;
+                }
+            }
+            else
+            {
+                mouth[4].enabled = true;
+                for (int i = 0; i < mouth.Length - 1; i++)
+                {
+                    mouth[i].enabled = false;
+                }
+            }
+        }
     }
 
     public void ChangeExpression(int value)
     {
         expression = value;
-    }
-
-    public void EnableEyes(bool value)
-    {
-        eyes.enabled = value;
-        eyesOn = value;
-    }
-
-    public void EnableNose(bool value)
-    {
-        nose.enabled = value;
-        noseOn = value;
-    }
-
-    public void EnableMouth(bool value)
-    {
-        mouth.enabled = value;
-        mouthOn = value;
     }
 }

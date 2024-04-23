@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public MortalManager mortalManager;
     public DialogueManager dialogueManager;
+    public UIMortalSheet UISheetMana;
 
     public MortalSheetSO actualMortal;
 
@@ -35,17 +36,19 @@ public class GameManager : MonoBehaviour
         DealManager.instance.onSealTheDeal.AddListener(FinishActualMortal);
 
         actualMortal.Init();
+        UISheetMana.RefreshSheet();
     }
 
     void FinishActualMortal()
     {
         DealManager.instance.CalculateScore();
-        //NextMortal
+        NextMortal();
     }
 
     void NextMortal()
     {
 
+        actualMortal.Init();
     }
 
     #region QuestionSystem
