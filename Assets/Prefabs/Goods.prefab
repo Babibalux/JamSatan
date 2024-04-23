@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 845747363994895962}
   m_Layer: 0
   m_Name: Goods
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,9 @@ MonoBehaviour:
   destroy: 0
   destroyDuration: 2
   destroyFX: {fileID: 7729748285696114755}
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &7630837201906645419
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1944276713971603024}
   - component: {fileID: 8076721514816290059}
   - component: {fileID: 8097965036894363140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EyesSocket
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: 1
   colliderZone: {fileID: 8097965036894363140}
-  linkedGoods: Eyes
+  linkedGoods: Eye
   available: 1
 --- !u!61 &8097965036894363140
 BoxCollider2D:
@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 1939111867664990834}
   - component: {fileID: 5884021452162495834}
   - component: {fileID: 7914516506960359686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MouthSocket
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,9 +199,9 @@ GameObject:
   - component: {fileID: 3410573345799809849}
   - component: {fileID: 1024611146293170288}
   - component: {fileID: 7804479339738956353}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NoseSocket
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,6 +424,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3654695972333542323, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}
   m_PrefabInstance: {fileID: 7637889223860638304}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &6578110715304666198 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -5569511141956929994, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}
+  m_PrefabInstance: {fileID: 7637889223860638304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7933359127250727901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}
@@ -468,7 +473,7 @@ MonoBehaviour:
   - {fileID: 4907892402329302556}
   - {fileID: 6338794033309546163}
   - {fileID: 3448982329121947026}
-  - {fileID: 0}
+  - {fileID: 6578110715304666198}
   hasNose: 1
   nose: {fileID: 6495522750993574686}
   hasMouth: 1
