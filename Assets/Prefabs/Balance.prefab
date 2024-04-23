@@ -427,7 +427,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0.45, y: 0}
   m_ConnectedAnchor: {x: 0.36, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 2.4159675
+  m_Distance: 2.4159677
   m_MaxDistanceOnly: 0
 --- !u!1 &4293353191901296421
 GameObject:
@@ -710,7 +710,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0.45, y: 0}
   m_ConnectedAnchor: {x: -0.34, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 2.3813653
+  m_Distance: 2.3813655
   m_MaxDistanceOnly: 0
 --- !u!61 &8302521432289971316
 BoxCollider2D:
