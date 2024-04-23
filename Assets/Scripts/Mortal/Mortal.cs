@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MortalManager : MonoBehaviour
 {
-    MortalGraphicManager mortalGraphMana;
+    public MortalGraphicManager mortalGraphMana;
 
     public void InvokeNewMortal(GameObject newMortal)
     {

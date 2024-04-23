@@ -16,4 +16,4 @@ MonoBehaviour:
   goodsType: 1
   baseGoodsWeight: 1
   baseScoreValue: 100
-  logo: {fileID: 21300000, guid: 0fa790b0613d3f54ea82d5f078c0ed14, type: 3}
+  logo: {fileID: 7610807682657552651, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}

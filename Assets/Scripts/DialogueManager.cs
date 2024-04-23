@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     #region Ask
     public void Ask(int value)
     {
-
+        GameManager.instance.AskQuestionMortal(value);
     }
     #endregion
 }
