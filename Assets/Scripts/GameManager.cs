@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public MortalSheetSO actualMortal;
 
+    [HideInInspector] public int askedFeatureID;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -52,9 +54,19 @@ public class GameManager : MonoBehaviour
     }
 
     #region QuestionSystem
-    public void AskMortal(int featureID)
+    public void BringUpTopicMortal(int featureID)
     {
-        dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+        if(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId] != null)
+        {
+            askedFeatureID = featureID;
+
+            dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+        }
+    }
+    public void AskQuestionMortal(int buttonID)
+    {
+        int dialogID = actualMortal.questionsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerDialogueID;
+        dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[dialogID]);
     }
     #endregion
 }

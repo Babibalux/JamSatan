@@ -25,7 +25,7 @@ public class UISheetFeature : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameManager.instance.AskMortal(featureID);
+        GameManager.instance.BringUpTopicMortal(featureID);
 
         //TEST Actualisation Feature
         //GameManager.instance.actualMortal.mortalFeatures[featureID].UpdateFeature();

@@ -68,9 +68,13 @@ MonoBehaviour:
     goodsModifiedSizeMultiplier: 0
   questionsRepertory:
   - dialogueContent: Oui, qu'est-ce qu'il a mon nom
+    featureToUpdateID: 0
     isQuestion: 1
     questions:
     - questionText: Il m'a l'air bien louche
-      answerDialogue: Okay j'avoue je suis juste Prince
-      featureToUpdateID: 0
+      answerDialogueID: 1
       hasBeenAnswered: 0
+  - dialogueContent: Nik
+    featureToUpdateID: 0
+    isQuestion: 0
+    questions: []

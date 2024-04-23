@@ -6,7 +6,9 @@ using UnityEngine;
 public class Dialogue
 {
     public string dialogueContent;
+    public int featureToUpdateID;
 
+    [Header("Is Question")]
     public bool isQuestion = false;
     public Question[] questions;    
 }

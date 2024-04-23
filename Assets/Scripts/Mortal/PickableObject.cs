@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PickableObject : MonoBehaviour
 {
-    public SpriteRenderer renderer;
-    public Collider2D collider;
+    
+    public enum PickableTarget { Null, Eyes, Nose, Mouth, Other}
+    public PickableTarget target;
+
+    public Collider2D colliderZone;
 
     public string linkedGoods;
     private GoodsItem goodsItem;
@@ -22,8 +26,23 @@ public class PickableObject : MonoBehaviour
     public void SetActive(bool value)
     {
         available = value;
-        renderer.enabled = available;
-        collider.enabled = available;
+        
+        switch (target)
+        {
+            case PickableTarget.Eyes:
+                GameManager.instance.mortalManager.mortalGraphMana.SetEyes(value);
+                break;
+            case PickableTarget.Nose:
+                GameManager.instance.mortalManager.mortalGraphMana.SetNose(value);
+                break;
+            case PickableTarget.Mouth:
+                GameManager.instance.mortalManager.mortalGraphMana.SetMouth(value);
+                break;
+            case PickableTarget.Other:
+                break;
+        }
+
+        colliderZone.enabled = available;
     }
 
     void GoodsDestroyed()

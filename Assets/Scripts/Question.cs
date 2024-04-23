@@ -6,8 +6,7 @@ using UnityEngine;
 public class Question
 {
     public string questionText;
-    public string answerDialogue;
-    public int featureToUpdateID;
+    public int answerDialogueID;
 
     public bool hasBeenAnswered;
 }
