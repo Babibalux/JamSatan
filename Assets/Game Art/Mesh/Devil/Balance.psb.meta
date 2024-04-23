@@ -105,7 +105,7 @@ ScriptedImporter:
       y: 690
       width: 88
       height: 27
-    spriteID: f0f88e2c61333f74b8f4061c844567af
+    spriteID: 67a4ee72d7a0b7a4d904955f533601c3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -115,7 +115,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 536, y: 690}
     spritePosition: {x: 1212, y: 1415}
-  - name: Calque 11
+  - name: Tete
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -126,7 +126,7 @@ ScriptedImporter:
       y: 449
       width: 292
       height: 233
-    spriteID: 2a63a5328a310004ea581930776e152b
+    spriteID: 3cf23c76a40a2e6479cac90721edd789
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,7 +147,7 @@ ScriptedImporter:
       y: 4
       width: 1048
       height: 144
-    spriteID: 0a934184751bd844fa731aa459febeab
+    spriteID: c8d1e98eab9053240857a15f7e12c489
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,7 +168,7 @@ ScriptedImporter:
       y: 4
       width: 358
       height: 437
-    spriteID: 8dfc0a2b9c6d7c24ba58fd9ca3a2b125
+    spriteID: bfeb721bd2fac26429ceca1c9eb886cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -189,7 +189,7 @@ ScriptedImporter:
       y: 4
       width: 524
       height: 985
-    spriteID: 8afe2019c12aded459e2dcdedfbb7b11
+    spriteID: 894ad96a472bf2748b6137427ee5d7d4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,8 +279,8 @@ ScriptedImporter:
     spriteName: Yeux
     isGroup: 0
     parentIndex: 3
-    spriteID: f0f88e2c61333f74b8f4061c844567af
-    layerID: 31
+    spriteID: 67a4ee72d7a0b7a4d904955f533601c3
+    layerID: 42
     mosaicPosition: {x: 536, y: 690}
     flatten: 0
     isImported: 1
@@ -295,12 +295,12 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: Calque 11
-    spriteName: Calque 11
+  - name: Tete
+    spriteName: Tete
     isGroup: 0
     parentIndex: 5
-    spriteID: 2a63a5328a310004ea581930776e152b
-    layerID: 39
+    spriteID: 3cf23c76a40a2e6479cac90721edd789
+    layerID: 43
     mosaicPosition: {x: 536, y: 449}
     flatten: 0
     isImported: 1
@@ -319,8 +319,8 @@ ScriptedImporter:
     spriteName: Balencier
     isGroup: 0
     parentIndex: 7
-    spriteID: 0a934184751bd844fa731aa459febeab
-    layerID: 21
+    spriteID: c8d1e98eab9053240857a15f7e12c489
+    layerID: 44
     mosaicPosition: {x: 902, y: 4}
     flatten: 0
     isImported: 1
@@ -339,8 +339,8 @@ ScriptedImporter:
     spriteName: Plateforme
     isGroup: 0
     parentIndex: 9
-    spriteID: 8dfc0a2b9c6d7c24ba58fd9ca3a2b125
-    layerID: 13
+    spriteID: bfeb721bd2fac26429ceca1c9eb886cc
+    layerID: 45
     mosaicPosition: {x: 536, y: 4}
     flatten: 0
     isImported: 1
@@ -359,8 +359,8 @@ ScriptedImporter:
     spriteName: Base
     isGroup: 0
     parentIndex: 11
-    spriteID: 8afe2019c12aded459e2dcdedfbb7b11
-    layerID: 8
+    spriteID: 894ad96a472bf2748b6137427ee5d7d4
+    layerID: 46
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
