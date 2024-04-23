@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class DealManager : MonoBehaviour
 {
     public GoodsManager goodsManager;
-    public MortalSheetSO actualMortal;
 
     public BoxCollider2D mortalValidationZone;
     public BoxCollider2D satanValidationZone;
@@ -36,7 +35,7 @@ public class DealManager : MonoBehaviour
 
     void Init()
     {
-        actualMortal.Init();
+
     }
 
     public void SealTheDeal()
@@ -49,6 +48,8 @@ public class DealManager : MonoBehaviour
     {
         List<GoodsItem> mortalDonation = goodsManager.GetGoodsInZone(mortalValidationZone);
         List<GoodsItem> satanDonation = goodsManager.GetGoodsInZone(satanValidationZone);
+
+        MortalSheetSO actualMortal = GameManager.instance.actualMortal;
 
         int score = 0;
         float weightBalance = 0;

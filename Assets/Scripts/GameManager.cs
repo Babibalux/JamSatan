@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public MortalManager mortalManager;
+    public DialogueManager dialogueManager;
+
+    public MortalSheetSO actualMortal;
 
     private void Awake()
     {
@@ -30,6 +33,8 @@ public class GameManager : MonoBehaviour
     void Init()
     {
         DealManager.instance.onSealTheDeal.AddListener(FinishActualMortal);
+
+        actualMortal.Init();
     }
 
     void FinishActualMortal()
@@ -42,4 +47,8 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    #region QuestionSystem
+
+    #endregion
 }
