@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DealManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DealManager : MonoBehaviour
     public AnimationCurve weightScoreByBalance;
     public float minWeight = -3;
     public float maxWeight = 3;
+
+    public UnityEvent onSealTheDeal;
 
     public static DealManager instance { get; private set; }
     private void Awake()
@@ -34,6 +37,11 @@ public class DealManager : MonoBehaviour
     void Init()
     {
         actualMortal.Init();
+    }
+
+    public void SealTheDeal()
+    {
+        onSealTheDeal.Invoke();
     }
 
     [ContextMenu("CalculateScore")]
@@ -64,16 +72,20 @@ public class DealManager : MonoBehaviour
             weightBalance -= item.rb.mass;
         }
 
-        //WeightBalanceScore
-        if(weightBalance < minWeight)
+        //WeightBalanceScore  
+        if(mortalDonation.Count >= 1 || satanDonation.Count >= 1)
         {
-            weightBalance = minWeight;
+            if (weightBalance < minWeight)
+            {
+                weightBalance = minWeight;
+            }
+            else if (weightBalance > maxWeight)
+            {
+                weightBalance = maxWeight;
+            }
+
+            score += Mathf.RoundToInt(weightScoreByBalance.Evaluate(weightBalance));
         }
-        else if (weightBalance > maxWeight)
-        {
-            weightBalance = maxWeight;
-        }
-        score += Mathf.RoundToInt(weightScoreByBalance.Evaluate(weightBalance));
 
         Debug.Log("Score : " + score);
         return score;

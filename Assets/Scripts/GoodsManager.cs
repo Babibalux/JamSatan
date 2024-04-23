@@ -7,8 +7,20 @@ public class GoodsManager : MonoBehaviour
     public List<GoodsItem> goods;
     public Dictionary<string, GoodsItem> goodsRepertory = new Dictionary<string, GoodsItem>();
 
-    public void Awake()
+    public static GoodsManager instance { get; private set; }
+    private void Awake()
     {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
         Init();
     }
 
