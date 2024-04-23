@@ -6,13 +6,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MortalSheet", menuName = "ScriptableObjects/Mortal/MortalSheet", order = 3)]
 public class MortalSheetSO : ScriptableObject
 {
-    public MortalFeatureSO mortalName;
-    public List<MortalFeatureSO> mortalHistory;
-    public List<MortalFeatureSO> mortalSkills;
-    public List<MortalFeatureSO> mortalSins;
+    public string mortalID;
+    public List<MortalFeature> mortalFeatures;
 
     public List<MortalPreference> mortalPreferences;
     public Dictionary<string,MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
+
+    public List<Dialogue> questionsRepertory;
 
     [System.Serializable]
     public struct MortalPreference
