@@ -115,6 +115,27 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 645, y: 1546}
     spritePosition: {x: 0, y: 841}
+  - name: NoEyes
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 1577
+      width: 149
+      height: 32
+    spriteID: 0b1d931325ac9704d88139908ef1739f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 1577}
+    spritePosition: {x: 389, y: 646}
   - name: Eyes_scared
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -571,7 +592,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 72
-      y: 1577
+      y: 1617
       width: 68
       height: 63
     spriteID: d53b27b0b6196654487013b3993bc61f
@@ -822,7 +843,7 @@ ScriptedImporter:
     - {x: 18, y: 19}
     - {x: 19, y: 20}
     tessellationDetail: 0
-    uvTransform: {x: 72, y: 1577}
+    uvTransform: {x: 72, y: 1617}
     spritePosition: {x: 430, y: 519}
   - name: Eyes_Angry
     originalName: 
@@ -2106,8 +2127,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 1577
+      x: 4
+      y: 1673
       width: 57
       height: 17
     spriteID: 15ab74d18a6290148893e8b61fd84494
@@ -2391,7 +2412,7 @@ ScriptedImporter:
     - {x: 21, y: 22}
     - {x: 22, y: 23}
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 1577}
+    uvTransform: {x: 4, y: 1673}
     spritePosition: {x: 440, y: 538}
   - name: Eyes_Neutral
     originalName: 
@@ -4682,8 +4703,8 @@ ScriptedImporter:
     layerID: 60
     mosaicPosition: {x: 72, y: 1577}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
   - name: Scared
     spriteName: 
     isGroup: 1
@@ -4710,7 +4731,7 @@ ScriptedImporter:
     parentIndex: 3
     spriteID: d53b27b0b6196654487013b3993bc61f
     layerID: 84
-    mosaicPosition: {x: 72, y: 1577}
+    mosaicPosition: {x: 72, y: 1617}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4800,7 +4821,7 @@ ScriptedImporter:
     parentIndex: 12
     spriteID: 15ab74d18a6290148893e8b61fd84494
     layerID: 37
-    mosaicPosition: {x: 148, y: 1577}
+    mosaicPosition: {x: 4, y: 1673}
     flatten: 0
     isImported: 1
     isVisible: 1
