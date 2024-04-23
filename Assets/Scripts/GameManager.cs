@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public MortalManager mortalManager;
     public DialogueManager dialogueManager;
     public UIMortalSheet UISheetMana;
+    public CursorManager cursorManager;
 
     public MortalSheetSO actualMortal;
 

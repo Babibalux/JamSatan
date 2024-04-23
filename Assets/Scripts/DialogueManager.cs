@@ -50,6 +50,14 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            for(int i = 0; i < askButtons.Length; i++)
+            {
+                askButtonsTexts[i].text = "";
+                askButtons[i].SetActive(false);
+            }
+        }
     }
     public void SetDialogueActive(bool set)
     {
