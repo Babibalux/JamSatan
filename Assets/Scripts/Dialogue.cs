@@ -5,16 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    public string[] dialogueContent;
+    public string dialogueContent;
 
     public bool isQuestion = false;
-    public Question[] questions;
-
-    [System.Serializable]
-    public struct Question
-    {
-        public string questionText;
-        public Dialogue answerDialogue;
-        public MortalFeature featureToUpdate;
-    }
+    public Question[] questions;    
 }

@@ -26,6 +26,7 @@ public class MortalFeature
     public void FeatureInit()
     {
         displayedText = initialText;
+        isUpdated = false;
     }
 
     public void UpdateFeature()
