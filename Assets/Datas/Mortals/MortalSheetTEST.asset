@@ -66,4 +66,11 @@ MonoBehaviour:
     scoreMultiplier: 2
     goodsModifiedWeightMultiplier: 0
     goodsModifiedSizeMultiplier: 0
-  questionsRepertory: []
+  questionsRepertory:
+  - dialogueContent: Oui, qu'est-ce qu'il a mon nom
+    isQuestion: 1
+    questions:
+    - questionText: Il m'a l'air bien louche
+      answerDialogue: Okay j'avoue je suis juste Prince
+      featureToUpdateID: 0
+      hasBeenAnswered: 0
