@@ -26,6 +26,7 @@ public class MortalSheetSO : ScriptableObject
     public void Init()
     {
         SetPreferencesDictionary();
+        FeaturesInit();
     }
 
     void SetPreferencesDictionary()
@@ -33,6 +34,14 @@ public class MortalSheetSO : ScriptableObject
         foreach(MortalPreference mp in mortalPreferences)
         {
             preferenceRepertory.Add(mp.goods.GoodsName,mp);
+        }
+    }
+
+    void FeaturesInit()
+    {
+        foreach(MortalFeature feature in mortalFeatures)
+        {
+            feature.FeatureInit();
         }
     }
 }

@@ -12,20 +12,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2399e9c9866d1547901af938997608d, type: 3}
   m_Name: MortalSheetTEST
   m_EditorClassIdentifier: 
-  mortalName: {fileID: 11400000, guid: b771c665d60f19340be84cd85f213344, type: 2}
-  mortalHistory: []
-  mortalSkills: []
-  mortalSins: []
+  mortalID: 
+  mortalFeatures:
+  - featureType: 0
+    initialText: The King
+    goods: {fileID: 0}
+    questionId: 0
+    isUpdatable: 1
+    isUpdated: 0
+    updateText: Prince Louis
+  - featureType: 1
+    initialText: Aime le chocolat
+    goods: {fileID: 0}
+    questionId: 0
+    isUpdatable: 1
+    isUpdated: 0
+    updateText: Aime le chocolat au lait
+  - featureType: 2
+    initialText: Yoyoman
+    goods: {fileID: 0}
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: Aime le chocolat au lait
+  - featureType: 1
+    initialText: Seigneur du cul
+    goods: {fileID: 0}
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: Aime le chocolat au lait
+  - featureType: 2
+    initialText: "P\xE9tomane"
+    goods: {fileID: 0}
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: Aime le chocolat au lait
   mortalPreferences:
   - goods: {fileID: 11400000, guid: 8db8b46ededd64448801d0993e855890, type: 2}
     scoreMultiplier: 0.75
-    goodsModifiedWeight: 0
+    goodsModifiedWeightMultiplier: 0
+    goodsModifiedSizeMultiplier: 0
   - goods: {fileID: 11400000, guid: f167a0bc068e0864ba16a4c3afe79cfd, type: 2}
     scoreMultiplier: 1.5
-    goodsModifiedWeight: 0
+    goodsModifiedWeightMultiplier: 0
+    goodsModifiedSizeMultiplier: 0
   - goods: {fileID: 11400000, guid: 95fc6671870738144a2b34aff45ff5ab, type: 2}
     scoreMultiplier: 0.5
-    goodsModifiedWeight: 0
+    goodsModifiedWeightMultiplier: 0
+    goodsModifiedSizeMultiplier: 0
   - goods: {fileID: 11400000, guid: 2b816eb49e36495458b081f5d1bb2c9e, type: 2}
     scoreMultiplier: 2
-    goodsModifiedWeight: 0
+    goodsModifiedWeightMultiplier: 0
+    goodsModifiedSizeMultiplier: 0
+  questionsRepertory: []
