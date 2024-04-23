@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     }
 
     #region QuestionSystem
-
+    public void AskMortal(int featureID)
+    {
+        dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+    }
     #endregion
 }

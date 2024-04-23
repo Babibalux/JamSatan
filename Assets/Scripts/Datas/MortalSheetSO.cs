@@ -36,7 +36,6 @@ public class MortalSheetSO : ScriptableObject
             preferenceRepertory.Add(mp.goods.GoodsName,mp);
         }
     }
-
     void FeaturesInit()
     {
         foreach(MortalFeature feature in mortalFeatures)
