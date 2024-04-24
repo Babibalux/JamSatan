@@ -87,4 +87,17 @@ public class MortalGraphicManager : MonoBehaviour
     {
         expression = value;
     }
+
+    public void SetEyes(bool set)
+    {
+        eyesOn = set;
+    }
+    public void SetNose(bool set)
+    {
+        noseOn = set;
+    }
+    public void SetMouth(bool set)
+    {
+        mouthOn = set;
+    }
 }

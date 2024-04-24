@@ -13,8 +13,10 @@ public class GoodsItem : MonoBehaviour
     public bool destroy;
     public float destroyDuration = 1f;
     public GameObject destroyFX;
+    public GameObject respawnFX;
     float destroyTime;
     public UnityEvent onDestroy;
+    
 
     public void Awake()
     {
@@ -35,14 +37,31 @@ public class GoodsItem : MonoBehaviour
     }
 
     public void DestroyGoods()
-    {
-        onDestroy.Invoke();
-
+    {    
         destroy = false;
         destroyTime = 0;
-        gameObject.SetActive(false);
 
         destroyFX.SetActive(false);
+
+        if (!type.doesRespawnInScene)
+        {
+            gameObject.SetActive(false);
+            onDestroy.Invoke();
+        }
+        else
+        {
+            transform.position = Vector2.zero;
+            GetComponent<Draggable>().enable = false;
+            respawnFX.SetActive(true);
+            StartCoroutine(RespawnFXDisable());
+        }
+    }
+
+    IEnumerator RespawnFXDisable()
+    {
+        yield return new WaitForSeconds(3f);
+        respawnFX.SetActive(false);
+        GetComponent<Draggable>().enable = true;
     }
 
     public void ChangeWeight(float weightModifier, float scaleModifier)

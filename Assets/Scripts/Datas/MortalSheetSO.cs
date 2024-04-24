@@ -12,7 +12,7 @@ public class MortalSheetSO : ScriptableObject
     public List<MortalPreference> mortalPreferences;
     public Dictionary<string,MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
 
-    public List<Dialogue> questionsRepertory;
+    public List<Dialogue> dialogsRepertory;
 
     [System.Serializable]
     public struct MortalPreference
@@ -27,6 +27,7 @@ public class MortalSheetSO : ScriptableObject
     {
         SetPreferencesDictionary();
         FeaturesInit();
+        DialogsInit();
     }
 
     void SetPreferencesDictionary()
@@ -41,6 +42,14 @@ public class MortalSheetSO : ScriptableObject
         foreach(MortalFeature feature in mortalFeatures)
         {
             feature.FeatureInit();
+        }
+    }
+
+    void DialogsInit()
+    {
+        foreach(Dialogue dialog in dialogsRepertory)
+        {
+            dialog.Init();
         }
     }
 }

@@ -11,8 +11,11 @@ public class MortalFeature
     [System.NonSerialized] public string displayedText;
     public string initialText;
 
+    public bool startsHiden = false;
+
     [Header("Associated Goods")]
     public GoodsSO goods;
+    public bool isLocked;
 
     [Header("Link Questions")]
     public int questionId;

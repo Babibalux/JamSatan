@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour
     public MortalManager mortalManager;
     public DialogueManager dialogueManager;
     public UIMortalSheet UISheetMana;
+    public CursorManager cursorManager;
 
     public MortalSheetSO actualMortal;
+
+    [HideInInspector] public int askedFeatureID;
 
     private void Awake()
     {
@@ -52,9 +55,28 @@ public class GameManager : MonoBehaviour
     }
 
     #region QuestionSystem
-    public void AskMortal(int featureID)
+    public void BringUpTopicMortal(int featureID)
     {
-        dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+        if(actualMortal.dialogsRepertory[actualMortal.mortalFeatures[featureID].questionId] != null)
+        {
+            askedFeatureID = featureID;
+
+            dialogueManager.ChangeDialogue(actualMortal.dialogsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+        }
+    }
+    public void AskQuestionMortal(int buttonID)
+    {
+        int dialogID = actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerDialogueID;
+        dialogueManager.ChangeDialogue(actualMortal.dialogsRepertory[dialogID]);
+
+        actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].hasBeenAnswered = true;
+    }
+    #endregion
+
+    #region GoodsManagement
+    public void AddGoods()
+    {
+
     }
     #endregion
 }

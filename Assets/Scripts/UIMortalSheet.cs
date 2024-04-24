@@ -60,7 +60,18 @@ public class UIMortalSheet : MonoBehaviour
 
     public void ShowFeature(MortalFeature.FeatureType type, int ID, bool set = true)
     {
-
+        switch(type)
+        {
+            case MortalFeature.FeatureType.Name:
+                nameFeature.SetEnable(set);
+                break;
+            case MortalFeature.FeatureType.History:
+                historyFeatures[ID].SetEnable(set);
+                break;
+            case MortalFeature.FeatureType.Misc:
+                miscFeatures[ID].SetEnable(set);
+                break;
+        }
     }
 
     public void RefreshSheet()

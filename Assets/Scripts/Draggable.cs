@@ -7,6 +7,7 @@ public class Draggable : MonoBehaviour
     Vector2 difference = Vector2.zero;
     Rigidbody2D rb;
     bool hasRb = false;
+    [System.NonSerialized] public bool enable = true;
 
     public void Awake()
     {
@@ -24,8 +25,11 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
-        SetRigidBody(false);
+        if(enable)
+        {
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
+            SetRigidBody(false);
+        }
     }
 
     public void OnMouseUp()
