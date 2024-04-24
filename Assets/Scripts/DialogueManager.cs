@@ -58,6 +58,24 @@ public class DialogueManager : MonoBehaviour
                 askButtons[i].SetActive(false);
             }
         }
+
+        if(actualDialogue.featureToUnlock != -1)
+        {
+            GameManager.instance.UISheetMana.ShowFeature(actualDialogue.featureUnlockType, actualDialogue.featureToUnlock);
+        }
+        
+        if(actualDialogue.featureToUpdateID != -1)
+        {
+            GameManager.instance.actualMortal.mortalFeatures[actualDialogue.featureToUpdateID].UpdateFeature();
+            GameManager.instance.UISheetMana.RefreshSheet();
+        }
+
+        if(actualDialogue.unlockGoods)
+        {
+            GameManager.instance.actualMortal.mortalFeatures[actualDialogue.goodsToUnlockFeatureID].isLocked = false;
+        }
+
+        StartCoroutine(ExpressionChange());
     }
     public void SetDialogueActive(bool set)
     {
@@ -66,6 +84,13 @@ public class DialogueManager : MonoBehaviour
     public void ChangeText(TextMeshProUGUI target,string newText)
     {
         target.text = newText;
+    }
+
+    IEnumerator ExpressionChange()
+    {
+        GameManager.instance.mortalManager.mortalGraphMana.ChangeExpression(actualDialogue.facialExpression);
+        yield return new WaitForSeconds(actualDialogue.expressionDuration);
+        GameManager.instance.mortalManager.mortalGraphMana.ChangeExpression(0);
     }
     #endregion
 

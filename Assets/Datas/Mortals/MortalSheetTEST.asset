@@ -16,6 +16,7 @@ MonoBehaviour:
   mortalFeatures:
   - featureType: 0
     initialText: The King
+    startsHiden: 0
     goods: {fileID: 0}
     questionId: 0
     isUpdatable: 1
@@ -23,20 +24,23 @@ MonoBehaviour:
     updateText: Prince Louis
   - featureType: 1
     initialText: Aime le chocolat
+    startsHiden: 1
     goods: {fileID: 0}
-    questionId: 0
+    questionId: 1
     isUpdatable: 1
     isUpdated: 0
     updateText: Aime le chocolat au lait
   - featureType: 2
     initialText: Yoyoman
+    startsHiden: 0
     goods: {fileID: 0}
-    questionId: 0
+    questionId: -1
     isUpdatable: 0
     isUpdated: 0
     updateText: Aime le chocolat au lait
   - featureType: 1
     initialText: Seigneur du cul
+    startsHiden: 0
     goods: {fileID: 0}
     questionId: 0
     isUpdatable: 0
@@ -44,6 +48,7 @@ MonoBehaviour:
     updateText: Aime le chocolat au lait
   - featureType: 2
     initialText: "P\xE9tomane"
+    startsHiden: 0
     goods: {fileID: 0}
     questionId: 0
     isUpdatable: 0
@@ -66,15 +71,34 @@ MonoBehaviour:
     scoreMultiplier: 2
     goodsModifiedWeightMultiplier: 0
     goodsModifiedSizeMultiplier: 0
-  questionsRepertory:
-  - dialogueContent: Oui, qu'est-ce qu'il a mon nom
-    featureToUpdateID: 0
+  dialogsRepertory:
+  - dialogueContent: "Salut \xE7a va"
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    facialExpression: 2
+    expressionDuration: 2
     isQuestion: 1
     questions:
-    - questionText: Il m'a l'air bien louche
+    - questionText: T'es bo mec
       answerDialogueID: 1
       hasBeenAnswered: 0
-  - dialogueContent: Nik
+    - questionText: T'aimes le chocolat mec
+      answerDialogueID: 2
+      hasBeenAnswered: 0
+  - dialogueContent: Merci
+    featureToUnlock: -1
+    featureUnlockType: 1
     featureToUpdateID: 0
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - dialogueContent: Wtf comment tu sais ?
+    featureToUnlock: 0
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    facialExpression: 3
+    expressionDuration: 3
     isQuestion: 0
     questions: []

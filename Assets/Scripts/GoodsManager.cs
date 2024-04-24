@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class GoodsManager : MonoBehaviour
 {
-    public List<GoodsItem> goods;
+    public GameObject regularGoodsParent;
+
+    public List<GoodsItem> regularGoods;
     public Dictionary<string, GoodsItem> goodsRepertory = new Dictionary<string, GoodsItem>();
+
+
+    public GameObject specialGoodsParent;
+
+    public List<GoodsItem> mortalSpecialGoods;
+    public Dictionary<string, GoodsItem> specialGoodsRepertory = new Dictionary<string, GoodsItem>();
 
     public static GoodsManager instance { get; private set; }
     private void Awake()
@@ -26,37 +34,77 @@ public class GoodsManager : MonoBehaviour
 
     void Init()
     {
+        regularGoods = GetAllGoods(regularGoodsParent);
         SetGoodsRepertory();
-        ShowHideAllGoods(false);
+        ShowHideAllRegularGoods(false);
+        StartHiddenObjects(regularGoods);
+    }
+
+    List<GoodsItem> GetAllGoods(GameObject parent)
+    {
+        List<GoodsItem> target = new List<GoodsItem>();
+        GoodsItem[] items = parent.GetComponentsInChildren<GoodsItem>();
+
+        foreach(GoodsItem item in items)
+        {
+            target.Add(item);
+        }
+
+        return target;
+    }
+
+    void StartHiddenObjects(List<GoodsItem> goodsItems)
+    {
+        foreach(GoodsItem goods in goodsItems)
+        {
+            if(!goods.type.startHidden)
+            {
+                ShowHideGoods(true, goods);
+            }
+        }
     }
 
     void SetGoodsRepertory()
     {
-        foreach (GoodsItem goodsItem in goods)
+        foreach (GoodsItem goodsItem in regularGoods)
         {
             goodsRepertory.Add(goodsItem.type.name, goodsItem);
         }
     }
+    void SetSpecialGoodsRepertory()
+    {
+        foreach (GoodsItem goodsItem in mortalSpecialGoods)
+        {
+            specialGoodsRepertory.Add(goodsItem.type.name, goodsItem);
+        }
+    }
 
-    public void ActualizeGoodsWeight(string targetName, float newWeight)
+    public void ActualizeGoodsWeight(string targetName, float newWeight, bool isRegularGoods = true)
     {
         GoodsItem target;
-        goodsRepertory.TryGetValue(targetName, out target);
+        if(isRegularGoods)
+        {
+            goodsRepertory.TryGetValue(targetName, out target);
+        }
+        else
+        {
+            specialGoodsRepertory.TryGetValue(targetName, out target);
+        }
 
         target.rb.mass = newWeight;
     }
 
     public void ResetAllGoods()
     {
-        foreach(GoodsItem goodsItem in goods)
+        foreach(GoodsItem goodsItem in regularGoods)
         {
             goodsItem.ResetGoods();
         }
     }
     
-    public void ShowHideAllGoods(bool show)
+    public void ShowHideAllRegularGoods(bool show)
     {
-        ShowHideGoods(show, goods.ToArray());
+        ShowHideGoods(show, regularGoods.ToArray());
     }
 
     public void ShowHideGoods(bool show, GoodsItem goods)

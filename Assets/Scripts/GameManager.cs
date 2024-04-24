@@ -57,17 +57,26 @@ public class GameManager : MonoBehaviour
     #region QuestionSystem
     public void BringUpTopicMortal(int featureID)
     {
-        if(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId] != null)
+        if(actualMortal.dialogsRepertory[actualMortal.mortalFeatures[featureID].questionId] != null)
         {
             askedFeatureID = featureID;
 
-            dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
+            dialogueManager.ChangeDialogue(actualMortal.dialogsRepertory[actualMortal.mortalFeatures[featureID].questionId]);
         }
     }
     public void AskQuestionMortal(int buttonID)
     {
-        int dialogID = actualMortal.questionsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerDialogueID;
-        dialogueManager.ChangeDialogue(actualMortal.questionsRepertory[dialogID]);
+        int dialogID = actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerDialogueID;
+        dialogueManager.ChangeDialogue(actualMortal.dialogsRepertory[dialogID]);
+
+        actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].hasBeenAnswered = true;
+    }
+    #endregion
+
+    #region GoodsManagement
+    public void AddGoods()
+    {
+
     }
     #endregion
 }

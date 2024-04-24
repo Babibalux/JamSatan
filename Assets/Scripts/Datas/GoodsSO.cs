@@ -11,6 +11,9 @@ public class GoodsSO : ScriptableObject
     public enum SideType { Satan, Mortal}
     public SideType goodsType;
 
+    public bool startHidden = true;
+    public bool doesRespawnInScene = false;
+
     public float baseGoodsWeight = 1;
     public float baseScoreValue = 100;
 
