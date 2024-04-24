@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2399e9c9866d1547901af938997608d, type: 3}
+  m_Name: MortalSheetTEST 2
+  m_EditorClassIdentifier: 
+  mortalID: 
+  mortalFeatures:
+  - featureType: 0
+    initialText: The Witch
+    startsHiden: 0
+    questionId: 0
+    isUpdatable: 1
+    isUpdated: 0
+    updateText: Prince Louis
+  - featureType: 1
+    initialText: "Tr\xE8s gentille"
+    startsHiden: 1
+    questionId: 1
+    isUpdatable: 1
+    isUpdated: 0
+    updateText: Vilaine
+  - featureType: 2
+    initialText: Joue de la flute
+    startsHiden: 0
+    questionId: -1
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: Aime le chocolat au lait
+  mortalPreferences: []
+  introDialogs:
+  - dialogueContent: Yo
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  dialogsRepertory:
+  - dialogueContent: "Salut \xE7a va"
+    featureToUnlock: 0
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: T'es bo mec
+      answerDialogueID: 1
+      hasBeenAnswered: 0
+    - questionText: T'aimes le chocolat mec
+      answerDialogueID: 2
+      hasBeenAnswered: 0

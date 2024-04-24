@@ -9,12 +9,6 @@ public class GoodsManager : MonoBehaviour
     public List<GoodsItem> regularGoods;
     public Dictionary<string, GoodsItem> goodsRepertory = new Dictionary<string, GoodsItem>();
 
-
-    public GameObject specialGoodsParent;
-
-    public List<GoodsItem> mortalSpecialGoods;
-    public Dictionary<string, GoodsItem> specialGoodsRepertory = new Dictionary<string, GoodsItem>();
-
     public static GoodsManager instance { get; private set; }
     private void Awake()
     {
@@ -29,15 +23,14 @@ public class GoodsManager : MonoBehaviour
             instance = this;
         }
 
-        Init();
     }
 
-    void Init()
+    public void Init()
     {
         regularGoods = GetAllGoods(regularGoodsParent);
         SetGoodsRepertory();
-        ShowHideAllRegularGoods(false);
-        StartHiddenObjects(regularGoods);
+        ResetAllGoods();
+        //StartHiddenObjects(regularGoods);
     }
 
     List<GoodsItem> GetAllGoods(GameObject parent)
@@ -53,7 +46,7 @@ public class GoodsManager : MonoBehaviour
         return target;
     }
 
-    void StartHiddenObjects(List<GoodsItem> goodsItems)
+    /*    void StartHiddenObjects(List<GoodsItem> goodsItems)
     {
         foreach(GoodsItem goods in goodsItems)
         {
@@ -62,7 +55,7 @@ public class GoodsManager : MonoBehaviour
                 ShowHideGoods(true, goods);
             }
         }
-    }
+    }*/
 
     void SetGoodsRepertory()
     {
@@ -70,30 +63,9 @@ public class GoodsManager : MonoBehaviour
         {
             goodsRepertory.Add(goodsItem.type.name, goodsItem);
         }
-    }
-    void SetSpecialGoodsRepertory()
-    {
-        foreach (GoodsItem goodsItem in mortalSpecialGoods)
-        {
-            specialGoodsRepertory.Add(goodsItem.type.name, goodsItem);
-        }
-    }
+    }    
 
-    public void ActualizeGoodsWeight(string targetName, float newWeight, bool isRegularGoods = true)
-    {
-        GoodsItem target;
-        if(isRegularGoods)
-        {
-            goodsRepertory.TryGetValue(targetName, out target);
-        }
-        else
-        {
-            specialGoodsRepertory.TryGetValue(targetName, out target);
-        }
-
-        target.rb.mass = newWeight;
-    }
-
+    [ContextMenu("ResetAllGoods")]
     public void ResetAllGoods()
     {
         foreach(GoodsItem goodsItem in regularGoods)
@@ -107,16 +79,23 @@ public class GoodsManager : MonoBehaviour
         ShowHideGoods(show, regularGoods.ToArray());
     }
 
-    public void ShowHideGoods(bool show, GoodsItem goods)
+    public void ShowHideGoods(bool show, GoodsItem goods, bool resetPos = false)
     {
-        goods.ShowGoods(show);
+        goods.ShowGoods(show,resetPos);
     }
-    public void ShowHideGoods(bool show, GoodsItem[] goods)
+    public void ShowHideGoods(bool show, GoodsItem[] goods, bool resetPos = false)
     {
         foreach(GoodsItem item in goods)
         {
-            item.ShowGoods(show);
+            item.ShowGoods(show, resetPos);
         }
+    }
+    public void ShowHideGoods(bool show, string goodsName, bool resetPos = false)
+    {
+        GoodsItem goods;
+        goodsRepertory.TryGetValue(goodsName,out goods);
+
+        goods.ShowGoods(show, resetPos);
     }
 
     public List<GoodsItem> GetGoodsInZone(Collider2D zone)
@@ -129,7 +108,7 @@ public class GoodsManager : MonoBehaviour
 
         foreach(Collider2D collider in objectsDetected)
         {
-            if(collider.GetComponent<GoodsItem>() == true)
+            if (collider.GetComponent<GoodsItem>() == true)
             {
                 goodsInZone.Add(collider.GetComponent<GoodsItem>());
             }

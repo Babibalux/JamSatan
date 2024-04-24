@@ -12,15 +12,14 @@ public class MortalSheetSO : ScriptableObject
     public List<MortalPreference> mortalPreferences;
     public Dictionary<string,MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
 
+    public List<Dialogue> introDialogs;
     public List<Dialogue> dialogsRepertory;
 
     [System.Serializable]
     public struct MortalPreference
     {
         public GoodsSO goods;
-        public float scoreMultiplier;
-        public float goodsModifiedWeightMultiplier;
-        public float goodsModifiedSizeMultiplier;
+        public float score;
     }
 
     public void Init()
@@ -32,6 +31,7 @@ public class MortalSheetSO : ScriptableObject
 
     void SetPreferencesDictionary()
     {
+        preferenceRepertory.Clear();
         foreach(MortalPreference mp in mortalPreferences)
         {
             preferenceRepertory.Add(mp.goods.GoodsName,mp);

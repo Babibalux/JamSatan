@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject buttonParent;
     public GameObject[] askButtons;
     public TextMeshProUGUI[] askButtonsTexts;
+    public GameObject closeButton;
+    public GameObject nextButton;
 
     [Header("Logic")]
     public Dialogue actualDialogue;
@@ -27,52 +29,69 @@ public class DialogueManager : MonoBehaviour
     }
 
     #region Dialogue
-    public void ChangeDialogue(Dialogue newDialogue)
+    public void ChangeDialogue(Dialogue newDialogue, bool isStartDialog = false)
     {
         SetDialogueActive(true);
 
         actualDialogue = newDialogue;
         ChangeText(dialogueText, actualDialogue.dialogueContent);
 
-        if(actualDialogue.isQuestion)
+        if(isStartDialog == false)
         {
-            for(int i = 0; i < askButtons.Length; i++)
+            nextButton.SetActive(false);
+            closeButton.SetActive(true);
+
+            if (actualDialogue.isQuestion)
             {
-                if(i < actualDialogue.questions.Length && !actualDialogue.questions[i].hasBeenAnswered)
+                for (int i = 0; i < askButtons.Length; i++)
                 {
-                    askButtonsTexts[i].text = actualDialogue.questions[i].questionText;
-                    askButtons[i].SetActive(true);
+                    if (i < actualDialogue.questions.Length && !actualDialogue.questions[i].hasBeenAnswered)
+                    {
+                        askButtonsTexts[i].text = actualDialogue.questions[i].questionText;
+                        askButtons[i].SetActive(true);
+                    }
+                    else
+                    {
+                        askButtonsTexts[i].text = "";
+                        askButtons[i].SetActive(false);
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i < askButtons.Length; i++)
                 {
                     askButtonsTexts[i].text = "";
                     askButtons[i].SetActive(false);
                 }
             }
+
+            if (actualDialogue.featureToUnlock != -1)
+            {
+                GameManager.instance.UISheetMana.ShowFeature(actualDialogue.featureUnlockType, actualDialogue.featureToUnlock);
+            }
+
+            if (actualDialogue.featureToUpdateID != -1)
+            {
+                GameManager.instance.actualMortal.mortalFeatures[actualDialogue.featureToUpdateID].UpdateFeature();
+                GameManager.instance.UISheetMana.RefreshSheet();
+            }
+
+            if (actualDialogue.unlockGoods)
+            {
+                GameManager.instance.AddGoods(actualDialogue.goodsToUnlock);
+            }
         }
         else
         {
-            for(int i = 0; i < askButtons.Length; i++)
+            nextButton.SetActive(true);
+            closeButton.SetActive(false);
+
+            for (int i = 0; i < askButtons.Length; i++)
             {
                 askButtonsTexts[i].text = "";
                 askButtons[i].SetActive(false);
             }
-        }
-
-        if(actualDialogue.featureToUnlock != -1)
-        {
-            GameManager.instance.UISheetMana.ShowFeature(actualDialogue.featureUnlockType, actualDialogue.featureToUnlock);
-        }
-        
-        if(actualDialogue.featureToUpdateID != -1)
-        {
-            GameManager.instance.actualMortal.mortalFeatures[actualDialogue.featureToUpdateID].UpdateFeature();
-            GameManager.instance.UISheetMana.RefreshSheet();
-        }
-
-        if(actualDialogue.unlockGoods)
-        {
-            GameManager.instance.actualMortal.mortalFeatures[actualDialogue.goodsToUnlockFeatureID].isLocked = false;
         }
 
         StartCoroutine(ExpressionChange());
@@ -93,6 +112,13 @@ public class DialogueManager : MonoBehaviour
         GameManager.instance.mortalManager.mortalGraphMana.ChangeExpression(0);
     }
     #endregion
+
+    public void NextIntroDialog(Dialogue newDialog, bool isLast)
+    {
+        if(!isLast) ChangeDialogue(newDialog,true);
+        else ChangeDialogue(newDialog, false);
+    }
+
 
     #region Ask
     public void Ask(int value)

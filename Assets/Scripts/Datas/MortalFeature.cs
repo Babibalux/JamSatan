@@ -13,10 +13,6 @@ public class MortalFeature
 
     public bool startsHiden = false;
 
-    [Header("Associated Goods")]
-    public GoodsSO goods;
-    public bool isLocked;
-
     [Header("Link Questions")]
     public int questionId;
 

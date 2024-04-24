@@ -16,24 +16,50 @@ public class GoodsItem : MonoBehaviour
     public GameObject respawnFX;
     float destroyTime;
     public UnityEvent onDestroy;
-    
+
+    public bool consumed = false;
+
+    Vector2 spawnPos;
 
     public void Awake()
     {
-        ResetGoods();
+        Init();
+        //ResetGoods();
+    }
+
+    public void Init()
+    {
+        spawnPos = gameObject.transform.position;
     }
 
     [ContextMenu("Reset")]
     public void ResetGoods()
     {
         spriteRenderer.sprite = type.logo;
-        rb.mass = type.baseGoodsWeight;
-        gameObject.transform.localScale = Vector2.one;
+        gameObject.transform.position = spawnPos;
+
+        if(type.startHidden)
+        {
+            ShowGoods(false);
+            if (!consumed)
+            {
+                onDestroy.Invoke();
+            }
+        }
+        else
+        {
+            ShowGoods(true,true);
+        }
+
+        consumed = false;
     }
 
-    public void ShowGoods(bool show)
+    public void ShowGoods(bool show, bool resetPos = false)
     {
-        gameObject.SetActive(show);
+        spriteRenderer.enabled = show;
+        GetComponent<Collider2D>().enabled = show;
+        rb.simulated = show;
+        if(resetPos) gameObject.transform.position = spawnPos;
     }
 
     public void DestroyGoods()
@@ -45,7 +71,7 @@ public class GoodsItem : MonoBehaviour
 
         if (!type.doesRespawnInScene)
         {
-            gameObject.SetActive(false);
+            ShowGoods(false);
             onDestroy.Invoke();
         }
         else
@@ -64,11 +90,11 @@ public class GoodsItem : MonoBehaviour
         GetComponent<Draggable>().enable = true;
     }
 
-    public void ChangeWeight(float weightModifier, float scaleModifier)
+    public void SpawnDespawnFX()
     {
-        rb.mass *= weightModifier;
-        gameObject.transform.localScale *= scaleModifier;
+
     }
+
 
     #region WrongZone
     public void WrongZoneProcessus(bool set)

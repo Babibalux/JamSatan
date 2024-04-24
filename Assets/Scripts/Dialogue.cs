@@ -15,7 +15,7 @@ public class Dialogue
 
     [Header("Unlock Goods")]
     public bool unlockGoods = false;
-    public int goodsToUnlockFeatureID;
+    public string goodsToUnlock;
 
     [Header("Mortal Expression")]
     public int facialExpression = 0;

@@ -17,15 +17,13 @@ MonoBehaviour:
   - featureType: 0
     initialText: The King
     startsHiden: 0
-    goods: {fileID: 0}
     questionId: 0
     isUpdatable: 1
-    isUpdated: 0
+    isUpdated: 1
     updateText: Prince Louis
   - featureType: 1
     initialText: Aime le chocolat
     startsHiden: 1
-    goods: {fileID: 0}
     questionId: 1
     isUpdatable: 1
     isUpdated: 0
@@ -33,7 +31,6 @@ MonoBehaviour:
   - featureType: 2
     initialText: Yoyoman
     startsHiden: 0
-    goods: {fileID: 0}
     questionId: -1
     isUpdatable: 0
     isUpdated: 0
@@ -41,7 +38,6 @@ MonoBehaviour:
   - featureType: 1
     initialText: Seigneur du cul
     startsHiden: 0
-    goods: {fileID: 0}
     questionId: 0
     isUpdatable: 0
     isUpdated: 0
@@ -49,33 +45,47 @@ MonoBehaviour:
   - featureType: 2
     initialText: "P\xE9tomane"
     startsHiden: 0
-    goods: {fileID: 0}
     questionId: 0
     isUpdatable: 0
     isUpdated: 0
     updateText: Aime le chocolat au lait
   mortalPreferences:
   - goods: {fileID: 11400000, guid: 8db8b46ededd64448801d0993e855890, type: 2}
-    scoreMultiplier: 0.75
-    goodsModifiedWeightMultiplier: 0
-    goodsModifiedSizeMultiplier: 0
+    score: 0
   - goods: {fileID: 11400000, guid: f167a0bc068e0864ba16a4c3afe79cfd, type: 2}
-    scoreMultiplier: 1.5
-    goodsModifiedWeightMultiplier: 0
-    goodsModifiedSizeMultiplier: 0
+    score: 100
   - goods: {fileID: 11400000, guid: 95fc6671870738144a2b34aff45ff5ab, type: 2}
-    scoreMultiplier: 0.5
-    goodsModifiedWeightMultiplier: 0
-    goodsModifiedSizeMultiplier: 0
+    score: 50
   - goods: {fileID: 11400000, guid: 2b816eb49e36495458b081f5d1bb2c9e, type: 2}
-    scoreMultiplier: 2
-    goodsModifiedWeightMultiplier: 0
-    goodsModifiedSizeMultiplier: 0
+    score: 0
+  introDialogs:
+  - dialogueContent: "Salut, j'ai rien \xE0 dire"
+    featureToUnlock: 0
+    featureUnlockType: 0
+    featureToUpdateID: 0
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  - dialogueContent: Non vraiment, vraiment rien
+    featureToUnlock: 0
+    featureUnlockType: 0
+    featureToUpdateID: 0
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
   dialogsRepertory:
   - dialogueContent: "Salut \xE7a va"
     featureToUnlock: -1
     featureUnlockType: 1
     featureToUpdateID: -1
+    unlockGoods: 1
+    goodsToUnlock: Heart
     facialExpression: 2
     expressionDuration: 2
     isQuestion: 1
@@ -90,6 +100,8 @@ MonoBehaviour:
     featureToUnlock: -1
     featureUnlockType: 1
     featureToUpdateID: 0
+    unlockGoods: 0
+    goodsToUnlock: 
     facialExpression: 1
     expressionDuration: 1
     isQuestion: 0
@@ -98,6 +110,8 @@ MonoBehaviour:
     featureToUnlock: 0
     featureUnlockType: 1
     featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
     facialExpression: 3
     expressionDuration: 3
     isQuestion: 0

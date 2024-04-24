@@ -10,11 +10,10 @@ public class DealManager : MonoBehaviour
     public BoxCollider2D mortalValidationZone;
     public BoxCollider2D satanValidationZone;
 
-    public AnimationCurve weightScoreByBalance;
-    public float minWeight = -3;
-    public float maxWeight = 3;
+    public bool dealAuthorized = false;
 
     public UnityEvent onSealTheDeal;
+
 
     public static DealManager instance { get; private set; }
     private void Awake()
@@ -29,18 +28,25 @@ public class DealManager : MonoBehaviour
         {
             instance = this;
         }
-
-        Init();
-    }
-
-    void Init()
-    {
-
     }
 
     public void SealTheDeal()
     {
+        List<GoodsItem> consumedGoods = goodsManager.GetGoodsInZone(mortalValidationZone);
+        List<GoodsItem> satanGoods = goodsManager.GetGoodsInZone(satanValidationZone);
+
         onSealTheDeal.Invoke();
+
+        foreach (GoodsItem goods in consumedGoods)
+        {
+            goods.consumed = true;
+            goods.ShowGoods(false);
+        }
+        foreach (GoodsItem goods in satanGoods)
+        {
+            goods.consumed = true;
+            goods.ShowGoods(false);
+        }
     }
 
     [ContextMenu("CalculateScore")]
@@ -52,43 +58,25 @@ public class DealManager : MonoBehaviour
         MortalSheetSO actualMortal = GameManager.instance.actualMortal;
 
         int score = 0;
-        float weightBalance = 0;
         //MortalItemsScore
-        foreach (GoodsItem item in mortalDonation)
+        for (int i = 0; i < mortalDonation.Count; i++)
         {
             MortalSheetSO.MortalPreference preference = new MortalSheetSO.MortalPreference();
-            actualMortal.preferenceRepertory.TryGetValue(item.type.GoodsName,out preference);
+            actualMortal.preferenceRepertory.TryGetValue(mortalDonation[i].type.GoodsName,out preference);
 
-            score += Mathf.RoundToInt(preference.scoreMultiplier * item.type.baseScoreValue);
-            weightBalance += item.rb.mass;
+            score += Mathf.RoundToInt(preference.score);
         }
 
         //SatanItemsScore
-        foreach (GoodsItem item in satanDonation)
+        for (int i = 0; i < satanDonation.Count; i++)
         {
             MortalSheetSO.MortalPreference preference = new MortalSheetSO.MortalPreference();
-            actualMortal.preferenceRepertory.TryGetValue(item.type.GoodsName, out preference);
+            actualMortal.preferenceRepertory.TryGetValue(satanDonation[i].type.GoodsName, out preference);
 
-            score += Mathf.RoundToInt(preference.scoreMultiplier * item.type.baseScoreValue);
-            weightBalance -= item.rb.mass;
+            score += Mathf.RoundToInt(preference.score);            
         }
 
-        //WeightBalanceScore  
-        if(mortalDonation.Count >= 1 || satanDonation.Count >= 1)
-        {
-            if (weightBalance < minWeight)
-            {
-                weightBalance = minWeight;
-            }
-            else if (weightBalance > maxWeight)
-            {
-                weightBalance = maxWeight;
-            }
-
-            score += Mathf.RoundToInt(weightScoreByBalance.Evaluate(weightBalance));
-        }
-
-        Debug.Log("Score : " + score);
+        Debug.Log("Score : "+ score);
         return score;
     }    
 }

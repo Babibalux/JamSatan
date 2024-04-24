@@ -8,5 +8,6 @@ public class Question
     public string questionText;
     public int answerDialogueID;
 
+    public bool answerOnceOnly;
     public bool hasBeenAnswered;
 }
