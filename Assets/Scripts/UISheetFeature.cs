@@ -4,10 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class UISheetFeature : MonoBehaviour, IPointerDownHandler
+public class UISheetFeature : MonoBehaviour
 {
     public int featureID;
     public TextMeshProUGUI textMesh;
+    public GameObject button;
 
     private bool isDisable = false;
 
@@ -30,15 +31,12 @@ public class UISheetFeature : MonoBehaviour, IPointerDownHandler
         textMesh.text = GameManager.instance.actualMortal.mortalFeatures[featureID].displayedText;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void Ask()
     {
         if (!isDisable && GameManager.instance.actualMortal.mortalFeatures[featureID].questionId != -1)
         {
             GameManager.instance.BringUpTopicMortal(featureID);
         }
-        //TEST Actualisation Feature
-        //GameManager.instance.actualMortal.mortalFeatures[featureID].UpdateFeature();
-        //GameManager.instance.UISheetMana.RefreshSheet();
     }
 
     [ContextMenu("SetEnable")]
@@ -49,7 +47,7 @@ public class UISheetFeature : MonoBehaviour, IPointerDownHandler
     public void SetEnable(bool set)
     {
         isDisable = !set;
-        textMesh.enabled = set;
+        button.SetActive(set);
         Refresh();
     }
 }
