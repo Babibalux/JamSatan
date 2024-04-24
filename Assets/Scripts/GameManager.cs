@@ -92,7 +92,11 @@ public class GameManager : MonoBehaviour
         }
         else //It was the last mortal
         {
+            dialogueManager.SetDialogueActive(false);
+            UISheetMana.ShowSheet(false);
+
             MacroManager.instance.ScoreMenu(actualScore);
+            mortalIndex = -1;
         }
     }
 

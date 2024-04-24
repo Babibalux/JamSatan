@@ -11,7 +11,6 @@ public class CursorManager : MonoBehaviour
     public Sprite canTakeTexture;
     public Sprite grabbingTexture;
 
-    private Vector2 cursorHotspot;
     public LayerMask contact;
     public Vector2 castExtents = Vector2.one;
 

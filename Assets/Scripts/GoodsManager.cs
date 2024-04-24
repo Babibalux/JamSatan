@@ -59,6 +59,7 @@ public class GoodsManager : MonoBehaviour
 
     void SetGoodsRepertory()
     {
+        goodsRepertory.Clear();
         foreach (GoodsItem goodsItem in regularGoods)
         {
             goodsRepertory.Add(goodsItem.type.name, goodsItem);

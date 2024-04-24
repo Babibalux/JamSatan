@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8345044507874273740}
   m_Layer: 6
   m_Name: PileOfPaper
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  isEnabled: 0
 --- !u!1 &8165002367445523512
 GameObject:
   m_ObjectHideFlags: 0
