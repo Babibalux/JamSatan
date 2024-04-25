@@ -15,7 +15,7 @@ MonoBehaviour:
   GoodsName: Medal
   goodsType: 1
   startHidden: 1
-  doesRespawnInScene: 0
+  doesRespawnInScene: 1
   baseGoodsWeight: 1
   baseScoreValue: 100
   logo: {fileID: 21300000, guid: fead4ecf0e0a4554397227b652bd8719, type: 3}

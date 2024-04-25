@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
+    public int ID;
     public string dialogueContent;
 
     [Header("Feature Unlock")]

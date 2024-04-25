@@ -1,0 +1,555 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2399e9c9866d1547901af938997608d, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  mortalID: Knight
+  mortalFeatures:
+  - featureType: 0
+    initialText: Sir Gabriel
+    startsHiden: 0
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Knight of the King's court
+    startsHiden: 0
+    questionId: 2
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Clumsy warrior
+    startsHiden: 1
+    questionId: 10
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Deeply in love
+    startsHiden: 1
+    questionId: 20
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 2
+    initialText: Bad in romance
+    startsHiden: 1
+    questionId: 26
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  mortalPreferences:
+  - goods: {fileID: 11400000, guid: 6d40d52f6efda964cacbb025b8f8288c, type: 2}
+    score: 25
+  - goods: {fileID: 11400000, guid: f8189d012cd85f04397a1a424dbfda82, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: 95fc6671870738144a2b34aff45ff5ab, type: 2}
+    score: 15
+  - goods: {fileID: 11400000, guid: aeda76fa88ec9574f8c18eee74d4cfdd, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: 3541da2b45eacd0489f8edd4a6c5d64b, type: 2}
+    score: 20
+  - goods: {fileID: 11400000, guid: 8e730bc742eff8142b9243c2bea83e34, type: 2}
+    score: 10
+  introDialogs:
+  - ID: 0
+    dialogueContent: Hello, Demon...
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  - ID: 1
+    dialogueContent: I am ashamed to do it, but I would like to seal a deal with
+      you.
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  - ID: 2
+    dialogueContent: My Heart for the Power.
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  dialogsRepertory:
+  - ID: 0
+    dialogueContent: ' I am Sir Gabriel, guardian of the King''s court.'
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 1
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 1
+    dialogueContent: My family protected the King for centuries, and so I do.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 1
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 2
+    dialogueContent: I will fight for the King on demand.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: You may be a glorious fighter.
+      answerDialogueID: 8
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Is it often ?
+      answerDialogueID: 3
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: You seems good at it !
+      answerDialogueID: 5
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 3
+    dialogueContent: Not really. Peace has been uninterrupted for years.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 4
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 4
+    dialogueContent: I am afraid I'm getting rusty without any good fight...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 4
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 5
+    dialogueContent: Unfortunately, not really...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 6
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 6
+    dialogueContent: I used to be one of the mightiest warriors. But recently...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 7
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 7
+    dialogueContent: I became clumsy for no reason...
+    featureToUnlock: 1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 7
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 8
+    dialogueContent: I am ! I led to success many battles in the past !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 9
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 9
+    dialogueContent: I was decorated for that !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 1
+    goodsToUnlock: Medal
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 9
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 10
+    dialogueContent: Please don't mock me, I am deeply concerned...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 11
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 11
+    dialogueContent: I lose all my confidence. That's why I want your help.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 12
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 12
+    dialogueContent: Please give me some power so I can recover my glory.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: What are you ready to give
+      answerDialogueID: 13
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Are you disturbed by something ?
+      answerDialogueID: 14
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 13
+    dialogueContent: Anything but my eyes... A blind fighter cannot be mighty for
+      long...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 0
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 14
+    dialogueContent: Hum...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 15
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 15
+    dialogueContent: Maybe I...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 16
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 16
+    dialogueContent: I met love.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 17
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 17
+    dialogueContent: A Courtesan, beautiful as a sun.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 3
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 18
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 18
+    dialogueContent: Since I know her I feel like I have to prove my value to approach
+      her.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 19
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 19
+    dialogueContent: But the pressure makes me lose my skills...
+    featureToUnlock: 2
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 3
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 19
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 20
+    dialogueContent: She is kind, pretty, and so cultivated !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 21
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 21
+    dialogueContent: But I am so afraid to see her with someone else that I feel
+      panicked with her.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Have you tired to talk to her ?
+      answerDialogueID: 24
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Go tell her your feelings !
+      answerDialogueID: 22
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 22
+    dialogueContent: ARE YOU CRAZY !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 23
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 23
+    dialogueContent: I can't without I have not proven my value !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 23
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 24
+    dialogueContent: I tried...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 25
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 25
+    dialogueContent: No words got out of my mouth... I flew away.
+    featureToUnlock: 0
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 25
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 26
+    dialogueContent: I never had to deal with that kind of situations before !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 27
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 27
+    dialogueContent: Please help me, Demon... I am lost...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 28
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 28
+    dialogueContent: Glory or love... I don't know what I want anymore.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 28
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  satisfactionScores: 000000001e0000003c00000064000000

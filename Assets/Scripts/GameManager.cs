@@ -144,11 +144,20 @@ public class GameManager : MonoBehaviour
     }
     public void AskQuestionMortal(int buttonID)
     {
-        int dialogID = actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerDialogueID;
+        int dialogID = dialogueManager.actualDialogue.ID;
+
+        if (actualMortal.dialogsRepertory[dialogID].isQuestion)
+        {
+            if (actualMortal.dialogsRepertory[dialogID].questions[buttonID].answerOnceOnly)
+            {
+                actualMortal.dialogsRepertory[dialogID].questions[buttonID].hasBeenAnswered = true;
+            }
+        }
+
+        dialogID = dialogueManager.actualDialogue.questions[buttonID].answerDialogueID;
         dialogueManager.ChangeDialogue(actualMortal.dialogsRepertory[dialogID]);
 
-        if(actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].answerOnceOnly) 
-            actualMortal.dialogsRepertory[actualMortal.mortalFeatures[askedFeatureID].questionId].questions[buttonID].hasBeenAnswered = true;
+        Debug.Log("Asked question ID :" + dialogID);
     }
     #endregion
 

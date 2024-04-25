@@ -1,0 +1,538 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2399e9c9866d1547901af938997608d, type: 3}
+  m_Name: King
+  m_EditorClassIdentifier: 
+  mortalID: King
+  mortalFeatures:
+  - featureType: 0
+    initialText: King Edouard
+    startsHiden: 0
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Local King
+    startsHiden: 0
+    questionId: 0
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Not taken seriously by the court
+    startsHiden: 1
+    questionId: 17
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 2
+    initialText: Very confident
+    startsHiden: 1
+    questionId: 8
+    isUpdatable: 1
+    isUpdated: 0
+    updateText: Anticharismatic
+  mortalPreferences:
+  - goods: {fileID: 11400000, guid: 8ad756063cbb54d4694b76b7bb71aadd, type: 2}
+    score: 30
+  - goods: {fileID: 11400000, guid: 95fc6671870738144a2b34aff45ff5ab, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: 6d40d52f6efda964cacbb025b8f8288c, type: 2}
+    score: 20
+  - goods: {fileID: 11400000, guid: 3c9a5a21aec77db4a9bd767101bb60f5, type: 2}
+    score: 10
+  - goods: {fileID: 11400000, guid: f8189d012cd85f04397a1a424dbfda82, type: 2}
+    score: 20
+  - goods: {fileID: 11400000, guid: 8db8b46ededd64448801d0993e855890, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: f167a0bc068e0864ba16a4c3afe79cfd, type: 2}
+    score: 10
+  - goods: {fileID: 11400000, guid: 3541da2b45eacd0489f8edd4a6c5d64b, type: 2}
+    score: 30
+  - goods: {fileID: 11400000, guid: a924414051956614ca9eab7bfd0bc7cc, type: 2}
+    score: 25
+  introDialogs:
+  - ID: 0
+    dialogueContent: Hello, Demon.
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  - ID: 1
+    dialogueContent: ...
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  - ID: 2
+    dialogueContent: H-Has the King of the Kingdom, I o-order you to...
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 3
+    dialogueContent: ...
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 4
+    dialogueContent: I want to live for eternity. Nobody will forget me !
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 5
+    dialogueContent: P-please ?
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  dialogsRepertory:
+  - ID: 0
+    dialogueContent: I am... The King !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 1
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 1
+    dialogueContent: Everybody knows and respect me !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Are you okay ?
+      answerDialogueID: 2
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: I don't know you
+      answerDialogueID: 4
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 2
+    dialogueContent: ...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 3
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 3
+    dialogueContent: Of course I am ! I am the King !
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 3
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 4
+    dialogueContent: '*Gasp*!'
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 5
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 5
+    dialogueContent: Y-You don't ?
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: You look sad
+      answerDialogueID: 6
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 6
+    dialogueContent: Not at all ! I am very confident !
+    featureToUnlock: 0
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 7
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 7
+    dialogueContent: ' That''s a shame if you don''t know me. But I don''t care.'
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 7
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 8
+    dialogueContent: W-what ?
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: You are obviously stressed
+      answerDialogueID: 9
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Tell me your problems
+      answerDialogueID: 11
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 9
+    dialogueContent: N-not at all ! I told you, I am fine !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 10
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 10
+    dialogueContent: Give me that longevity potion so I can leave !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 10
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 11
+    dialogueContent: '!'
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 12
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 12
+    dialogueContent: Really ?
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Joking, not your psy
+      answerDialogueID: 10
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Sure
+      answerDialogueID: 13
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 13
+    dialogueContent: That's ... Weirdly kind of you ?
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 14
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 14
+    dialogueContent: You know, being King is a lot of pressure...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 15
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 15
+    dialogueContent: And I am not sur to fit in the role...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 16
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 16
+    dialogueContent: Anyway, that's what the court think
+    featureToUnlock: 1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 16
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 17
+    dialogueContent: The court is not kind with me...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 18
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 18
+    dialogueContent: That's true, I am not the most charismatic king.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: 3
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 19
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 19
+    dialogueContent: But I am trying ...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Do you have no friends ?
+      answerDialogueID: 20
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Why do you seek for longevity ?
+      answerDialogueID: 24
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 20
+    dialogueContent: There was a girl, we were in a relation.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 21
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 21
+    dialogueContent: I thought it could help me gain in confidence to find my queen.
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 22
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 22
+    dialogueContent: She was great but...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 23
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 23
+    dialogueContent: ... a bit creepy
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 23
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 24
+    dialogueContent: I thought it would help me being respected...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 25
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 25
+    dialogueContent: Maybe I was wrong ...
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 2
+    isQuestion: 0
+    questions:
+    - questionText: Next
+      answerDialogueID: 25
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  satisfactionScores: 000000001e0000003c00000064000000

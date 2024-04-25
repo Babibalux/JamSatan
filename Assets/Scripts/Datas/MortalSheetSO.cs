@@ -33,9 +33,12 @@ public class MortalSheetSO : ScriptableObject
 
     void SetPreferencesDictionary()
     {
+        Debug.Log(mortalID + " : SetPreferencesDictionary");
         preferenceRepertory.Clear();
         foreach (MortalPreference mp in mortalPreferences)
         {
+
+            Debug.Log(mortalID + " add " + mp.goods.GoodsName);
             preferenceRepertory.Add(mp.goods.GoodsName, mp);
         }
     }

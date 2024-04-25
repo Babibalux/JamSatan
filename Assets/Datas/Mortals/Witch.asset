@@ -1,0 +1,444 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2399e9c9866d1547901af938997608d, type: 3}
+  m_Name: Witch
+  m_EditorClassIdentifier: 
+  mortalID: Witch
+  mortalFeatures:
+  - featureType: 0
+    initialText: Lady Agnes
+    startsHiden: 0
+    questionId: 22
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 1
+    initialText: Courtesan
+    startsHiden: 0
+    questionId: 0
+    isUpdatable: 1
+    isUpdated: 1
+    updateText: King's mistress
+  - featureType: 2
+    initialText: Bookworm
+    startsHiden: 1
+    questionId: 7
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 2
+    initialText: Witch
+    startsHiden: 1
+    questionId: 16
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  - featureType: 2
+    initialText: Murderer
+    startsHiden: 1
+    questionId: 17
+    isUpdatable: 0
+    isUpdated: 0
+    updateText: 
+  mortalPreferences:
+  - goods: {fileID: 11400000, guid: c7e820bf362008f4d93cb44472bac1f2, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: f8189d012cd85f04397a1a424dbfda82, type: 2}
+    score: 20
+  - goods: {fileID: 11400000, guid: 3541da2b45eacd0489f8edd4a6c5d64b, type: 2}
+    score: 30
+  - goods: {fileID: 11400000, guid: 8e730bc742eff8142b9243c2bea83e34, type: 2}
+    score: 50
+  - goods: {fileID: 11400000, guid: a924414051956614ca9eab7bfd0bc7cc, type: 2}
+    score: 10
+  - goods: {fileID: 11400000, guid: 2b4514c68e180b245ab5cbc606e4d9fa, type: 2}
+    score: 20
+  introDialogs:
+  - ID: 0
+    dialogueContent: Hello, dear Demon. I would like to seal a deal
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 0
+    dialogueContent: I am a very curious person, and I love to learn
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  - ID: 0
+    dialogueContent: ' So I could give you anything to know everything'
+    featureToUnlock: -1
+    featureUnlockType: 0
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: 
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  dialogsRepertory:
+  - ID: 0
+    dialogueContent: ' Effectively, I am living at the royal court.'
+    featureToUnlock: -1
+    featureUnlockType: 1
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 1
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 1
+    dialogueContent: The library is comfortable, and the gardens pretty.
+    featureToUnlock: 0
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Is that all ?
+      answerDialogueID: 2
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 2
+    dialogueContent: ...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 3
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 3
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 3
+    dialogueContent: As a Courtesan, I also have to give some ... company to the
+      nobles.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 4
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 4
+    dialogueContent: Even if they don't care about you in the end...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: What do you mean
+      answerDialogueID: 5
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 5
+    dialogueContent: Forget it.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 6
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 6
+    dialogueContent: Just a bad experience with the "King"...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: 1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  - ID: 7
+    dialogueContent: Reading is my favorite thing !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 1
+    questions:
+    - questionText: What do you like to read ?
+      answerDialogueID: 8
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 8
+    dialogueContent: Many things... Fairytales, History... But I really like to read
+      about plants !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Why
+      answerDialogueID: 9
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 9
+    dialogueContent: Because they have plenty of secrets...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 10
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 10
+    dialogueContent: Medicinal virtues...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 11
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 11
+    dialogueContent: Or can be deadly
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: So you practice witchcraft
+      answerDialogueID: 12
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Have you used it ?
+      answerDialogueID: 13
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 12
+    dialogueContent: Call it what you want, I would rather say it is science...
+    featureToUnlock: 1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  - ID: 13
+    dialogueContent: ' ...'
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 14
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 14
+    dialogueContent: Yes... But only on rats.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 15
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 15
+    dialogueContent: ' I did not kill any human yet, if it the point of your question
+      !'
+    featureToUnlock: 2
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 16
+    dialogueContent: ' I am not a witch ! I am a scientist !'
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 1
+    isQuestion: 0
+    questions: []
+  - ID: 17
+    dialogueContent: Not yet...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 3
+    expressionDuration: 1
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 18
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 18
+    dialogueContent: I read in the library about a special plant, that kills human
+      without a trace.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 19
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 19
+    dialogueContent: But the informations are incomplete.
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Next
+      answerDialogueID: 20
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 20
+    dialogueContent: That's why I need you...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 1
+    questions:
+    - questionText: Is it for you ?
+      answerDialogueID: 21
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+    - questionText: Is it for the King ?
+      answerDialogueID: 22
+      answerOnceOnly: 0
+      hasBeenAnswered: 0
+  - ID: 21
+    dialogueContent: Me ? No way ! I have plans for the future !
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 1
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  - ID: 22
+    dialogueContent: He has to pay for playing with my heart...
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 2
+    expressionDuration: 2
+    isQuestion: 0
+    questions: []
+  - ID: 23
+    dialogueContent: Yes, and ?
+    featureToUnlock: -1
+    featureUnlockType: 2
+    featureToUpdateID: -1
+    unlockGoods: 0
+    goodsToUnlock: Heart
+    facialExpression: 0
+    expressionDuration: 0
+    isQuestion: 0
+    questions: []
+  satisfactionScores: 000000001e0000003c00000064000000
