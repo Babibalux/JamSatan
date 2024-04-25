@@ -10,6 +10,7 @@ public class MortalManager : MonoBehaviour
 
     public void InvokeNewMortal(int newMortalID)
     {
+        mortalGraphMana.ResetMortalGraph();
         EnableGoodVisual(newMortalID);
         mortalGraphMana = mortals[newMortalID].GetComponent<MortalGraphicManager>();
         animator.SetBool("MortalIn",true);

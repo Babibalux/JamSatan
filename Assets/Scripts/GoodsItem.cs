@@ -54,20 +54,32 @@ public class GoodsItem : MonoBehaviour
         consumed = false;
     }
 
-    public void ShowGoods(bool show, bool resetPos = false)
+    public void ShowGoods(bool show, bool resetPos = false, bool showRespawnFX = true)
     {
         spriteRenderer.enabled = show;
         GetComponent<Collider2D>().enabled = show;
         rb.simulated = show;
-        if(resetPos) gameObject.transform.position = spawnPos;
+
+
+        if (!show)
+        {
+            DespawnFX();
+        }
+
+        if (resetPos) gameObject.transform.position = spawnPos;
+
+        if (show && showRespawnFX)
+        {
+            RespawnFX();
+        }
     }
 
     public void DestroyGoods()
-    {    
+    {
+        DespawnFX();
+
         destroy = false;
         destroyTime = 0;
-
-        destroyFX.SetActive(false);
 
         if (!type.doesRespawnInScene)
         {
@@ -78,23 +90,42 @@ public class GoodsItem : MonoBehaviour
         {
             transform.position = Vector2.zero;
             GetComponent<Draggable>().enable = false;
-            respawnFX.SetActive(true);
-            StartCoroutine(RespawnFXDisable());
+            RespawnFX();
+            StartCoroutine(ManipulationCooldown());
         }
     }
 
-    IEnumerator RespawnFXDisable()
+    IEnumerator ManipulationCooldown()
     {
         yield return new WaitForSeconds(3f);
-        respawnFX.SetActive(false);
         GetComponent<Draggable>().enable = true;
     }
 
-    public void SpawnDespawnFX()
+    public void RespawnFX()
     {
+        GameObject FXObject = Instantiate<GameObject>(respawnFX, this.gameObject.transform.position, Quaternion.identity);
 
+        StartCoroutine(SpawnFXDisable(FXObject));
     }
 
+    IEnumerator SpawnFXDisable(GameObject FXObject)
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(FXObject);
+    }
+
+    public void DespawnFX()
+    {
+        GameObject FXObject = Instantiate<GameObject>(destroyFX, this.gameObject.transform.position, Quaternion.identity);
+
+        StartCoroutine(DespawnFXDisable(FXObject));
+    }
+
+    IEnumerator DespawnFXDisable(GameObject FXObject)
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(FXObject);
+    }
 
     #region WrongZone
     public void WrongZoneProcessus(bool set)
@@ -103,14 +134,13 @@ public class GoodsItem : MonoBehaviour
         {
             destroy = true;
             StartCoroutine(SelfDestroyProcessus());
-            destroyFX.SetActive(true);
+            //destroyFX.SetActive(true);
         }
         else
         {
             destroyTime = 0;
             destroy = false;
-
-            destroyFX.SetActive(false);
+            //destroyFX.SetActive(false);
         }
     }
 

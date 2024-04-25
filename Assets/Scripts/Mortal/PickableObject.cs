@@ -6,14 +6,14 @@ using UnityEngine;
 public class PickableObject : MonoBehaviour
 {
     
-    public enum PickableTarget { Null, Eyes, Nose, Mouth, Other}
+    public enum PickableTarget { Null, Eyes, Nose, Mouth, Heart, Soul, Accessory, Other}
     public PickableTarget target;
 
     public Collider2D colliderZone;
+    public ContactFilter2D contactFilter;
 
     public string linkedGoods;
     private GoodsItem goodsItem;
-
 
     public bool available = true;
 
@@ -21,6 +21,28 @@ public class PickableObject : MonoBehaviour
     {
         GoodsManager.instance.goodsRepertory.TryGetValue(linkedGoods, out goodsItem);
         goodsItem.onDestroy.AddListener(GoodsDestroyed);
+    }
+
+    public void FixedUpdate()
+    {
+        if (!available && Input.GetMouseButtonUp(0))
+        {
+            List<Collider2D> colliders = new List<Collider2D>();
+            colliderZone.OverlapCollider(contactFilter, colliders);
+
+            foreach (Collider2D hit in colliders)
+            {
+                GoodsItem hitGoods = hit.GetComponentInParent<GoodsItem>();
+                if (hitGoods != null)
+                {
+                    if (goodsItem == hitGoods)
+                    {
+                        SetActive(true);
+                        goodsItem.ShowGoods(false);
+                    }
+                }
+            }
+        }
     }
 
     public void SetActive(bool value)
@@ -38,11 +60,16 @@ public class PickableObject : MonoBehaviour
             case PickableTarget.Mouth:
                 GameManager.instance.mortalManager.mortalGraphMana.SetMouth(value);
                 break;
-            case PickableTarget.Other:
+            case PickableTarget.Heart:
+                GameManager.instance.mortalManager.mortalGraphMana.SetHeart(value);
+                break;
+            case PickableTarget.Soul:
+                GameManager.instance.mortalManager.mortalGraphMana.SetSoul(value);
+                break;
+            case PickableTarget.Accessory:
+                GameManager.instance.mortalManager.mortalGraphMana.SetAccessory(value);
                 break;
         }
-
-        colliderZone.enabled = available;
     }
 
     void GoodsDestroyed()
@@ -52,8 +79,13 @@ public class PickableObject : MonoBehaviour
 
     public void OnMouseDown()
     {
-        SetActive(false);
-        goodsItem.ShowGoods(true);
-        goodsItem.transform.position = this.transform.position;
+        if(available)
+        {
+            SetActive(false);
+            GameManager.instance.mortalManager.mortalGraphMana.ChangeExpression(3, 0, 1.5f);
+            goodsItem.ShowGoods(true, false, false);
+            goodsItem.transform.position = this.transform.position;
+            goodsItem.RespawnFX();
+        }
     }
 }

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoodsName: Tongue
   goodsType: 1
+  startHidden: 1
+  doesRespawnInScene: 0
   baseGoodsWeight: 1
   baseScoreValue: 100
-  logo: {fileID: 8394617326924809884, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}
+  logo: {fileID: 21300000, guid: 6404371dbe303dd40bd948684763fc90, type: 3}

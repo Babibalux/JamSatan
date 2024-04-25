@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoodsName: Nose
   goodsType: 1
+  startHidden: 1
+  doesRespawnInScene: 0
   baseGoodsWeight: 1
   baseScoreValue: 100
-  logo: {fileID: 7610807682657552651, guid: 1b95a70242a5bb7448b79f7bf84d7222, type: 3}
+  logo: {fileID: 7670247353042222724, guid: c2c1c8ff820d25d409fa8ec0ae208f85, type: 3}

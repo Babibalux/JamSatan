@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    public GameObject managersParents;
     public MortalManager mortalManager;
     public DialogueManager dialogueManager;
     public UIMortalSheet UISheetMana;
@@ -22,11 +21,15 @@ public class GameManager : MonoBehaviour
     public UnityEvent IntroDialogStart;
     public UnityEvent IntroDialogEnded;
 
-    int mortalIndex = -1;
+    public int mortalIndex = -1;
     int introDialogIndex = 0;
 
     [Header("Score System")]
     public int actualScore = 0;
+
+    public Animator devilHand;
+    bool firstGame = true;
+
 
     private void Awake()
     {
@@ -39,10 +42,8 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-        }
+        }                
     }
-
-
 
     public void StartGame()
     {
@@ -52,7 +53,8 @@ public class GameManager : MonoBehaviour
 
     void Init()
     {
-        DealManager.instance.onSealTheDeal.AddListener(FinishActualMortal);
+        if(firstGame) DealManager.instance.onSealTheDeal.AddListener(FinishActualMortal);
+        firstGame = false;
         actualScore = 0;
 
         GoodsManager.instance.Init();
@@ -62,13 +64,42 @@ public class GameManager : MonoBehaviour
 
     void FinishActualMortal()
     {
-        AddScore(DealManager.instance.CalculateScore());
+        int scoreGained = DealManager.instance.CalculateScore();
+
+        AddScore(scoreGained);
+        introDialogIndex = 0;
+
+        ScoreMortalReaction(scoreGained);
+
         UISheetMana.ShowSheet(false);
+        dialogueManager.SetDialogueActive(false);
 
         //ResetGoods
+        devilHand.SetTrigger("Next");
 
         mortalManager.GetOutMortal();
-        Invoke("NextMortal",3f);
+        Invoke("NextMortal",4f);
+    }
+
+    //2 3 0 1
+    void ScoreMortalReaction(int score)
+    {
+        if(score <= actualMortal.satisfactionScores[0])
+        {
+            mortalManager.mortalGraphMana.ChangeExpression(2,0,4);
+        }
+        else if (score <= actualMortal.satisfactionScores[1])
+        {
+            mortalManager.mortalGraphMana.ChangeExpression(3, 0, 4);
+        }
+        else if (score <= actualMortal.satisfactionScores[2])
+        {
+            mortalManager.mortalGraphMana.ChangeExpression(0);
+        }
+        else if (score >= actualMortal.satisfactionScores[3])
+        {
+            mortalManager.mortalGraphMana.ChangeExpression(1,0,4);
+        }
     }
 
     void NextMortal()
@@ -78,6 +109,7 @@ public class GameManager : MonoBehaviour
         //There are still mortals to deal with
         if (mortalIndex < allMortals.Length)
         {
+
             actualMortal = allMortals[mortalIndex];
 
 
@@ -95,8 +127,8 @@ public class GameManager : MonoBehaviour
             dialogueManager.SetDialogueActive(false);
             UISheetMana.ShowSheet(false);
 
-            MacroManager.instance.ScoreMenu(actualScore);
             mortalIndex = -1;
+            MacroManager.instance.ScoreMenu(actualScore);
         }
     }
 
@@ -129,7 +161,8 @@ public class GameManager : MonoBehaviour
 
     public void ReadNextIntroDialog()
     {
-        if(introDialogIndex == 0)
+        
+        if (introDialogIndex == 0)
         {
             IntroDialogStart.Invoke();
         }
@@ -137,11 +170,15 @@ public class GameManager : MonoBehaviour
         if (introDialogIndex < actualMortal.introDialogs.Count -1)
         {
             dialogueManager.NextIntroDialog(actualMortal.introDialogs[introDialogIndex], false);
-            introDialogIndex++;
         }
         else
         {
             dialogueManager.NextIntroDialog(actualMortal.introDialogs[introDialogIndex], true);
+        }
+        introDialogIndex++;
+
+        if (introDialogIndex == actualMortal.introDialogs.Count)
+        {
             introDialogIndex = 0;
 
             IntroDialogEnded.Invoke();

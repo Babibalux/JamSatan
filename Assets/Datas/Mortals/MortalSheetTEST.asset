@@ -19,7 +19,7 @@ MonoBehaviour:
     startsHiden: 0
     questionId: 0
     isUpdatable: 1
-    isUpdated: 1
+    isUpdated: 0
     updateText: Prince Louis
   - featureType: 1
     initialText: Aime le chocolat
@@ -56,13 +56,11 @@ MonoBehaviour:
     score: 100
   - goods: {fileID: 11400000, guid: 95fc6671870738144a2b34aff45ff5ab, type: 2}
     score: 50
-  - goods: {fileID: 11400000, guid: 2b816eb49e36495458b081f5d1bb2c9e, type: 2}
-    score: 0
   introDialogs:
   - dialogueContent: "Salut, j'ai rien \xE0 dire"
-    featureToUnlock: 0
+    featureToUnlock: -1
     featureUnlockType: 0
-    featureToUpdateID: 0
+    featureToUpdateID: -1
     unlockGoods: 0
     goodsToUnlock: 
     facialExpression: 0
@@ -70,9 +68,9 @@ MonoBehaviour:
     isQuestion: 0
     questions: []
   - dialogueContent: Non vraiment, vraiment rien
-    featureToUnlock: 0
+    featureToUnlock: -1
     featureUnlockType: 0
-    featureToUpdateID: 0
+    featureToUpdateID: -1
     unlockGoods: 0
     goodsToUnlock: 
     facialExpression: 0
@@ -92,9 +90,11 @@ MonoBehaviour:
     questions:
     - questionText: T'es bo mec
       answerDialogueID: 1
+      answerOnceOnly: 0
       hasBeenAnswered: 0
     - questionText: T'aimes le chocolat mec
       answerDialogueID: 2
+      answerOnceOnly: 0
       hasBeenAnswered: 0
   - dialogueContent: Merci
     featureToUnlock: -1
@@ -116,3 +116,4 @@ MonoBehaviour:
     expressionDuration: 3
     isQuestion: 0
     questions: []
+  satisfactionScores: 00000000320000006400000096000000

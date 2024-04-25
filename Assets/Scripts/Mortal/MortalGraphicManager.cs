@@ -19,11 +19,37 @@ public class MortalGraphicManager : MonoBehaviour
     public SpriteRenderer[] mouth;
     bool mouthOn = true;
 
-    public int expression = 0;    
+    [Header("Heart")]
+    public bool hasHeart = true;
+    public SpriteRenderer heart;
+    bool heartOn = true;
+
+    [Header("Soul")]
+    public bool hasSoul = true;
+    public SpriteRenderer soul;
+    bool soulOn = true;
+
+    [Header("Accessory")]
+    public bool hasAccessory = true;
+    public SpriteRenderer accessory;
+    bool accessoryOn = true;
+
+    public int expression = 0;
+
 
     public void FixedUpdate()
     {
         FacialExpression();
+    }
+
+    public void ResetMortalGraph()
+    {
+        SetEyes(true);
+        SetNose(true);
+        SetMouth(true);
+        SetHeart(true);
+        SetSoul(true);
+        SetAccessory(true);
     }
 
     void FacialExpression()
@@ -81,11 +107,39 @@ public class MortalGraphicManager : MonoBehaviour
                 }
             }
         }
+
+        if (hasSoul)
+        {
+            if (soulOn) soul.enabled = true;
+            else soul.enabled = false;
+        }
+
+        if (hasHeart)
+        {
+            if (heartOn) heart.enabled = true;
+            else heart.enabled = false;
+        }
+
+        if (hasAccessory)
+        {
+            if (accessoryOn) accessory.enabled = true;
+            else accessory.enabled = false;
+        }
     }
 
     public void ChangeExpression(int value)
     {
         expression = value;
+    }
+    public void ChangeExpression(int value, int returnValue, float duration)
+    {
+        expression = value;
+        StartCoroutine(ReturnExpression(returnValue,duration));
+    }
+    IEnumerator ReturnExpression(int returnExpression,float value)
+    {
+        yield return new WaitForSeconds(value);
+        ChangeExpression(returnExpression);
     }
 
     public void SetEyes(bool set)
@@ -99,5 +153,20 @@ public class MortalGraphicManager : MonoBehaviour
     public void SetMouth(bool set)
     {
         mouthOn = set;
+    }
+
+    public void SetHeart(bool set)
+    {
+        heartOn = set;
+    }
+
+    public void SetSoul(bool set)
+    {
+        soulOn = set;
+    }
+
+    public void SetAccessory(bool set)
+    {
+        accessoryOn = set;
     }
 }

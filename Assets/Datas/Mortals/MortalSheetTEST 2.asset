@@ -60,7 +60,10 @@ MonoBehaviour:
     questions:
     - questionText: T'es bo mec
       answerDialogueID: 1
+      answerOnceOnly: 0
       hasBeenAnswered: 0
     - questionText: T'aimes le chocolat mec
       answerDialogueID: 2
+      answerOnceOnly: 0
       hasBeenAnswered: 0
+  satisfactionScores: 00000000320000006400000096000000

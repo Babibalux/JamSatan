@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class MortalSheetSO : ScriptableObject
     public List<MortalFeature> mortalFeatures;
 
     public List<MortalPreference> mortalPreferences;
-    public Dictionary<string,MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
+    public Dictionary<string, MortalPreference> preferenceRepertory = new Dictionary<string, MortalPreference>();
 
     public List<Dialogue> introDialogs;
     public List<Dialogue> dialogsRepertory;
@@ -22,6 +21,9 @@ public class MortalSheetSO : ScriptableObject
         public float score;
     }
 
+
+    public int[] satisfactionScores = new int[4];
+
     public void Init()
     {
         SetPreferencesDictionary();
@@ -32,14 +34,14 @@ public class MortalSheetSO : ScriptableObject
     void SetPreferencesDictionary()
     {
         preferenceRepertory.Clear();
-        foreach(MortalPreference mp in mortalPreferences)
+        foreach (MortalPreference mp in mortalPreferences)
         {
-            preferenceRepertory.Add(mp.goods.GoodsName,mp);
+            preferenceRepertory.Add(mp.goods.GoodsName, mp);
         }
     }
     void FeaturesInit()
     {
-        foreach(MortalFeature feature in mortalFeatures)
+        foreach (MortalFeature feature in mortalFeatures)
         {
             feature.FeatureInit();
         }
@@ -47,7 +49,7 @@ public class MortalSheetSO : ScriptableObject
 
     void DialogsInit()
     {
-        foreach(Dialogue dialog in dialogsRepertory)
+        foreach (Dialogue dialog in dialogsRepertory)
         {
             dialog.Init();
         }
