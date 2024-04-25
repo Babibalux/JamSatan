@@ -161,5 +161,6 @@ public class GoodsItem : MonoBehaviour
             }
         }
     }
+
     #endregion
 }

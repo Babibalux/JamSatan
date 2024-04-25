@@ -50,4 +50,9 @@ public class MacroManager : MonoBehaviour
 
         mainMenu.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -37,8 +37,6 @@ public class MortalSheetSO : ScriptableObject
         preferenceRepertory.Clear();
         foreach (MortalPreference mp in mortalPreferences)
         {
-
-            Debug.Log(mortalID + " add " + mp.goods.GoodsName);
             preferenceRepertory.Add(mp.goods.GoodsName, mp);
         }
     }

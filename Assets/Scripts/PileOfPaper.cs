@@ -26,6 +26,10 @@ public class PileOfPaper : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(isEnabled) onClic.Invoke();
+        if (isEnabled)
+        {
+            onClic.Invoke();
+            Debug.Log("Pile of paper");
+        }
     }
 }

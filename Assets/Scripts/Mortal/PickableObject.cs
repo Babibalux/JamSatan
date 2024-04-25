@@ -35,7 +35,7 @@ public class PickableObject : MonoBehaviour
                 GoodsItem hitGoods = hit.GetComponentInParent<GoodsItem>();
                 if (hitGoods != null)
                 {
-                    if (goodsItem == hitGoods)
+                    if (goodsItem == hitGoods && canReplace)
                     {
                         SetActive(true);
                         goodsItem.ShowGoods(false);
@@ -43,6 +43,16 @@ public class PickableObject : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool canReplace = true;
+    float cooldown = 2f;
+
+    IEnumerator ReplaceCooldown()
+    {
+        canReplace = false;
+        yield return new WaitForSeconds(cooldown);
+        canReplace = true;
     }
 
     public void SetActive(bool value)
@@ -86,6 +96,7 @@ public class PickableObject : MonoBehaviour
             goodsItem.ShowGoods(true, false, false);
             goodsItem.transform.position = this.transform.position;
             goodsItem.RespawnFX();
+            StartCoroutine(ReplaceCooldown());
         }
     }
 }
